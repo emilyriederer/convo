@@ -24,11 +24,7 @@ write_convo <- function(convo_min, filename = "convo-config.yml", path = ".") {
     )
   }
 
-  make_stub_list <- function(lvl) {
-    sapply(lvl,
-           FUN = function(x) list(desc = NULL, valid = NULL), USE.NAMES = TRUE, simplify = FALSE)
-  }
-  convo_obj <- lapply(convo_min, make_stub_list)
+  convo_obj <- create_convo(convo_min)
   yaml::write_yaml(convo_obj, file = file.path(path, filename))
 
 }
