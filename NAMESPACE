@@ -2,7 +2,9 @@
 
 S3method(print,convo)
 export("%>%")
+export(add_convo_stub)
 export(compare_convo)
+export(create_convo)
 export(create_pb_agent)
 export(describe_convo)
 export(describe_names)
