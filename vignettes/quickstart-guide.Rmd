@@ -50,6 +50,8 @@ convo_colnames
 compare_convo(convo_colnames, convo, fx = "setdiff")
 ```
 
+(Note that if your names are separated by a different delimiter than `_`, you may pass that to `parse_stubs()` and most other functions shown in this demo using the `sep =` argument.)
+
 Or merge needed new stubs into the existing `convo`:
 
 ```{r}
@@ -113,6 +115,20 @@ write_pb(convo, c("IND_A", "AMT_B"), filename = "convo-validation.yml", path = t
 ```{yaml, code=xfun::read_utf8(file.path(tempdir(), "convo-validation.yml")), eval = FALSE}
 ```
 
+## Beyond Column Names
+
+`convo` can manage controlled vocabularies beyond column names, as well. For example, `convo` can help document files is a large project. 
+
+```{r}
+filenames <- c("analysis/validation-a.Rmd",
+               "analysis/validation-b.Rmd",
+               "analysis/analysis.Rmd",
+               "analysis/report.Rmd",
+               "src/script-a.sql",
+               "src/script-b.sql")
+filenames_clean <- gsub("\\.[A-Za-z]+$", "", basename(filenames))
+parse_stubs(filenames_clean, sep = "-")
+```
 
 
 
