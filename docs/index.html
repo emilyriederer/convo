@@ -76,19 +76,62 @@
 <a href="#convo" class="anchor"></a>convo</h1></div>
 <!-- badges: start -->
 
-<p>The goal of convo is to …</p>
+<p>The goal of <code>convo</code> is to enable the creation of a a controlled vocabularly for naming columns in a relational dataset as described in my blog post <a href="https://emilyriederer.netlify.app/post/column-name-contracts/">Column Names as Contracts</a>. This controlled vocabularly can then be used to check a set of names for adherence, to automate documentation, and to generate data checks via the <code>pointblank</code> package.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of convo from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"convo"</span>)</pre></div>
+<p>You can install the development version of convo from GitHub with:</p>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"emilyriederer/convo"</span>)</pre></div>
+</div>
+<div id="features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#features" class="anchor"></a>Features</h2>
+<div id="available" class="section level3">
+<h3 class="hasAnchor">
+<a href="#available" class="anchor"></a>Available</h3>
+<ul>
+<li>Define controlled vocabularly (a <code>convo</code>) in R or YAML including valid name stubs at different levels of the ontology and optional descriptions or validation checks</li>
+<li>Parse stub lists (candidate <code>convo</code>s) from a set of variables</li>
+<li>Evaluate if a set of names adheres to a <code>convo</code> and identify violations</li>
+<li>Compare <code>convo</code> objects and/or stub lists with set-like operations (union, intersect, setdiff) to identify new candidates for inclusion</li>
+<li>Generate a <code>pointblank</code> validation agent or YAML file from a <code>convo</code> object for data validation</li>
+<li>Document a dataset with network diagrams or a table</li>
+</ul>
+</div>
+<div id="current-limitations--future-enhancements" class="section level3">
+<h3 class="hasAnchor">
+<a href="#current-limitations--future-enhancements" class="anchor"></a>Current Limitations / Future Enhancements</h3>
+<ul>
+<li>Define overall metadata for controlled vocabularly metadata such as:
+<ul>
+<li>overall descriptor string</li>
+<li>human-readable names describing each level</li>
+</ul>
+</li>
+<li>Richer control over levels. Currently can only evaluate starting from the front, but in the future could:
+<ul>
+<li>allow some levels to be optional</li>
+<li>work from both front and the back</li>
+</ul>
+</li>
+<li>Current levels are independent of one another
+<ul>
+<li>could allow for truly hierarchical ontologies where allowed level 2 stubs vary by level 1 stub used</li>
+</ul>
+</li>
+<li>Current assumption is that realizations of a controlled vocabularly are all delimited by the same separator
+<ul>
+<li>to work better with filepaths, might potentially want to enable multiple types of delimeters</li>
+</ul>
+</li>
+<li>Current regex support slightly unreliable. Need to better document and expand</li>
+</ul>
+</div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">convo</span>)
-<span class="co">## basic example code</span></pre></div>
+<p>Main pieces of functionality are illustrated in the <a href="https://emilyriederer.github.io/convo/articles/quickstart-guide.html">Quick Start Guide</a> on the package website.</p>
 </div>
 </div>
   </div>

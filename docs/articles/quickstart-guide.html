@@ -196,6 +196,7 @@
 <span class="co">#&gt; </span>
 <span class="co">#&gt; attr(,"class")</span>
 <span class="co">#&gt; [1] "convomin" "list"</span></pre></body></html></div>
+<p>(Note that if your names are separated by a different delimiter than <code>_</code>, you may pass that to <code><a href="../reference/parse_stubs.html">parse_stubs()</a></code> and most other functions shown in this demo using the <code>sep =</code> argument.)</p>
 <p>Or merge needed new stubs into the existing <code>convo</code>:</p>
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">convo_union</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/compare_convo.html">compare_convo</a></span>(<span class="no">convo_colnames</span>, <span class="no">convo</span>, <span class="kw">fx</span> <span class="kw">=</span> <span class="st">"union"</span>)
 <span class="no">convo_union</span>
@@ -216,7 +217,7 @@
 <a href="#record" class="anchor"></a>Record</h2>
 <p>After conducting set operations on a <code>convo</code> as shown above, a new <code>convo</code> YAML specification can be written back out to YAML:</p>
 <div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="fu"><a href="../reference/write_convo.html">write_convo</a></span>(<span class="no">convo_union</span>, <span class="kw">filename</span> <span class="kw">=</span> <span class="st">"new-convo.yml"</span>, <span class="kw">path</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>())</pre></body></html></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1"></a><span class="at">C:\Users\emily\AppData\Local\Temp\RtmpGSzkqa/ex-convo.yml</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1"></a><span class="at">C:\Users\emily\AppData\Local\Temp\Rtmp2DPC5Y/ex-convo.yml</span></span></code></pre></div>
 </div>
 <div id="document" class="section level2">
 <h2 class="hasAnchor">
@@ -225,13 +226,13 @@
 <div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="no">vars</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"AMT_A_2019"</span>, <span class="st">"IND_C_2020"</span>)
 <span class="no">desc_df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/describe_names.html">describe_names</a></span>(<span class="no">vars</span>, <span class="no">convo</span>, <span class="kw">desc_str</span> <span class="kw">=</span> <span class="st">"{level1} of {level2} in given year"</span>)
 <span class="kw pkg">DT</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html">datatable</a></span>(<span class="no">desc_df</span>)</pre></body></html></div>
-<div id="htmlwidget-82f86aad4f9f3f610290" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-82f86aad4f9f3f610290">{"x":{"filter":"none","data":[["1","2"],["AMT_A_2019","IND_C_2020"],["AMT","IND"],["A","C"],["2019","2020"],["Non-negative, summable quantity of Type A in given year","Binary indicator of Type C in given year"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>var_name<\/th>\n      <th>level1<\/th>\n      <th>level2<\/th>\n      <th>level3<\/th>\n      <th>desc<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}]}},"evals":[],"jsHooks":[]}</script><p>Visualize data as controlled vocabulary components:</p>
+<div id="htmlwidget-493777a5d1ecfec08558" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-493777a5d1ecfec08558">{"x":{"filter":"none","data":[["1","2"],["AMT_A_2019","IND_C_2020"],["AMT","IND"],["A","C"],["2019","2020"],["Non-negative, summable quantity of Type A in given year","Binary indicator of Type C in given year"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>var_name<\/th>\n      <th>level1<\/th>\n      <th>level2<\/th>\n      <th>level3<\/th>\n      <th>desc<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}]}},"evals":[],"jsHooks":[]}</script><p>Visualize data as controlled vocabulary components:</p>
 <div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="no">vbls</span> <span class="kw">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"AMT_A_2019"</span>, <span class="st">"AMT_B"</span>, <span class="st">"AMT_C"</span>, <span class="st">"IND_A"</span>, <span class="st">"IND_B_2020"</span>)
 <span class="no">vbls_df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/parse_df.html">parse_df</a></span>(<span class="no">vbls</span>)
 <span class="fu"><a href="../reference/viz_names.html">viz_names</a></span>(<span class="no">vbls_df</span>)</pre></body></html></div>
-<div id="htmlwidget-8d7846db4c07ea405e25" style="width:700px;height:432.632880098888px;" class="collapsibleTree html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8d7846db4c07ea405e25">{"x":{"data":{"name":"convo_df","SizeOfNode":14.05,"children":[{"name":"AMT","SizeOfNode":10.88,"children":[{"name":"A","SizeOfNode":6.28,"children":[{"name":"2019","SizeOfNode":6.28}]},{"name":"B","SizeOfNode":6.28},{"name":"C","SizeOfNode":6.28}]},{"name":"IND","SizeOfNode":8.89,"children":[{"name":"A","SizeOfNode":6.28},{"name":"B","SizeOfNode":6.28,"children":[{"name":"2020","SizeOfNode":6.28}]}]}]},"options":{"hierarchy":["level1","level2","level3"],"input":null,"attribute":"leafCount","linkLength":null,"fontSize":10,"tooltip":false,"collapsed":true,"zoomable":true,"margin":{"top":20,"bottom":20,"left":69.05,"right":45},"fill":"lightsteelblue"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-209ff9d41f95b6e64776" style="width:700px;height:432.632880098888px;" class="collapsibleTree html-widget"></div>
+<script type="application/json" data-for="htmlwidget-209ff9d41f95b6e64776">{"x":{"data":{"name":"convo_df","SizeOfNode":14.05,"children":[{"name":"AMT","SizeOfNode":10.88,"children":[{"name":"A","SizeOfNode":6.28,"children":[{"name":"2019","SizeOfNode":6.28}]},{"name":"B","SizeOfNode":6.28},{"name":"C","SizeOfNode":6.28}]},{"name":"IND","SizeOfNode":8.89,"children":[{"name":"A","SizeOfNode":6.28},{"name":"B","SizeOfNode":6.28,"children":[{"name":"2020","SizeOfNode":6.28}]}]}]},"options":{"hierarchy":["level1","level2","level3"],"input":null,"attribute":"leafCount","linkLength":null,"fontSize":10,"tooltip":false,"collapsed":true,"zoomable":true,"margin":{"top":20,"bottom":20,"left":69.05,"right":45},"fill":"lightsteelblue"}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="validate" class="section level2">
 <h2 class="hasAnchor">
@@ -623,7 +624,7 @@ html {
     </tr>
 <tr>
 <th colspan="14" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="font-size: 12px; text-align: left;">
-<span style="text-decoration-style:solid;text-decoration-color:#ADD8E6;text-decoration-line:underline;text-underline-position:under;color:#333333;font-variant-numeric:tabular-nums;padding-left:4px;margin-right:5px;padding-right:2px;">[2020-11-17|21:57:31]</span>
+<span style="text-decoration-style:solid;text-decoration-color:#ADD8E6;text-decoration-line:underline;text-underline-position:under;color:#333333;font-variant-numeric:tabular-nums;padding-left:4px;margin-right:5px;padding-right:2px;">[2020-11-18|07:49:26]</span>
 <div style="height:25px;">
 <span style="background-color:#9933CC;color:#FFFFFF;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 0px 5px 5px;font-weight:bold;border:solid 1px #9933CC;padding:2px 15px 2px 15px;font-size:smaller;">data frame</span>
 <span style="background-color:none;color:#222222;padding:0.5em 0.5em;position:inherit;margin:5px 10px 5px -4px;font-weight:bold;border:solid 1px #9933CC;padding:2px 15px 2px 15px;font-size:smaller;">tbl</span>
@@ -872,7 +873,7 @@ html {
 </tbody>
 <tfoot class="gt_sourcenotes"><tr>
 <td class="gt_sourcenote" colspan="14">
-<span style="background-color: #FFF;color: #444;padding: 0.5em 0.5em;position: inherit;text-transform: uppercase;margin-left: 10px;border: solid 1px #999999;font-variant-numeric: tabular-nums;border-radius: 0;padding: 2px 10px 2px 10px;font-size: smaller;">2020-11-17 21:57:31 CST</span><span style="background-color: #FFF;color: #444;padding: 0.5em 0.5em;position: inherit;margin: 5px 1px 5px 0;border: solid 1px #999999;border-left: none;font-variant-numeric: tabular-nums;border-radius: 0;padding: 2px 10px 2px 10px;font-size: smaller;">&lt; 1 s</span><span style="background-color: #FFF;color: #444;padding: 0.5em 0.5em;position: inherit;text-transform: uppercase;margin: 5px 1px 5px -1px;border: solid 1px #999999;border-left: none;border-radius: 0;padding: 2px 10px 2px 10px;font-size: smaller;">2020-11-17 21:57:32 CST</span>
+<span style="background-color: #FFF;color: #444;padding: 0.5em 0.5em;position: inherit;text-transform: uppercase;margin-left: 10px;border: solid 1px #999999;font-variant-numeric: tabular-nums;border-radius: 0;padding: 2px 10px 2px 10px;font-size: smaller;">2020-11-18 07:49:26 CST</span><span style="background-color: #FFF;color: #444;padding: 0.5em 0.5em;position: inherit;margin: 5px 1px 5px 0;border: solid 1px #999999;border-left: none;font-variant-numeric: tabular-nums;border-radius: 0;padding: 2px 10px 2px 10px;font-size: smaller;">&lt; 1 s</span><span style="background-color: #FFF;color: #444;padding: 0.5em 0.5em;position: inherit;text-transform: uppercase;margin: 5px 1px 5px -1px;border: solid 1px #999999;border-left: none;border-radius: 0;padding: 2px 10px 2px 10px;font-size: smaller;">2020-11-18 07:49:26 CST</span>
 </td>
     </tr></tfoot>
 </table></div>
@@ -882,7 +883,7 @@ html {
 <span class="fu"><a href="../reference/write_pb.html">write_pb</a></span>(<span class="no">convo</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"IND_A"</span>, <span class="st">"AMT_B"</span>), <span class="kw">filename</span> <span class="kw">=</span> <span class="st">"convo-validation.yml"</span>, <span class="kw">path</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>())</pre></body></html></div>
 <div class="sourceCode" id="cb13"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">read_fn</span><span class="kw">:</span><span class="at"> ~setNames(as.data.frame(matrix(1, ncol = 2)), c("IND_A", "AMT_B"))</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="fu">tbl_name</span><span class="kw">:</span><span class="at"> .na.character</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">'[2020-11-17|21:57:34]'</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">'[2020-11-18|07:49:29]'</span></span>
 <span id="cb13-4"><a href="#cb13-4"></a><span class="fu">locale</span><span class="kw">:</span><span class="at"> en</span></span>
 <span id="cb13-5"><a href="#cb13-5"></a><span class="fu">steps</span><span class="kw">:</span></span>
 <span id="cb13-6"><a href="#cb13-6"></a><span class="kw">-</span><span class="at"> </span><span class="fu">col_is_numeric</span><span class="kw">:</span></span>
@@ -897,6 +898,27 @@ html {
 <span id="cb13-15"><a href="#cb13-15"></a><span class="kw">-</span><span class="at"> </span><span class="fu">col_vals_gte</span><span class="kw">:</span></span>
 <span id="cb13-16"><a href="#cb13-16"></a><span class="at">    </span><span class="fu">columns</span><span class="kw">:</span><span class="at"> vars(AMT_B)</span></span>
 <span id="cb13-17"><a href="#cb13-17"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.0</span></span></code></pre></div>
+</div>
+<div id="beyond-column-names" class="section level2">
+<h2 class="hasAnchor">
+<a href="#beyond-column-names" class="anchor"></a>Beyond Column Names</h2>
+<p><code>convo</code> can manage controlled vocabularies beyond column names, as well. For example, <code>convo</code> can help document files is a large project.</p>
+<div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="no">filenames</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"analysis/validation-a.Rmd"</span>,
+               <span class="st">"analysis/validation-b.Rmd"</span>,
+               <span class="st">"analysis/analysis.Rmd"</span>,
+               <span class="st">"analysis/report.Rmd"</span>,
+               <span class="st">"src/script-a.sql"</span>,
+               <span class="st">"src/script-b.sql"</span>)
+<span class="no">filenames_clean</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span>(<span class="st">"\\.[A-Za-z]+$"</span>, <span class="st">""</span>, <span class="fu"><a href="https://rdrr.io/r/base/basename.html">basename</a></span>(<span class="no">filenames</span>))
+<span class="fu"><a href="../reference/parse_stubs.html">parse_stubs</a></span>(<span class="no">filenames_clean</span>, <span class="kw">sep</span> <span class="kw">=</span> <span class="st">"-"</span>)</pre></body></html></div>
+<pre><code>#&gt; [[1]]
+#&gt; [1] "validation" "analysis"   "report"     "script"    
+#&gt; 
+#&gt; [[2]]
+#&gt; [1] "a" "b"
+#&gt; 
+#&gt; attr(,"class")
+#&gt; [1] "convomin" "list"</code></pre>
 </div>
   </div>
 

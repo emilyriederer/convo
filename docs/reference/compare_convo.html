@@ -141,7 +141,7 @@ against an existing one, this argument should take the existing vocabulary.</p><
     </tr>
     <tr>
       <th>fx</th>
-      <td><p>Comparison function. <code>setdiff</code> returns those in <code>vocab1</code> not in <code>vocab2</code>; <code>intersect</code>
+      <td><p>Character string describing comparison function. <code>setdiff</code> returns those in <code>vocab1</code> not in <code>vocab2</code>; <code>intersect</code>
 returns those in both <code>vocab1</code> and <code>vocab2</code>; <code>union</code> returns all elements in either</p></td>
     </tr>
     </table>
@@ -153,7 +153,37 @@ returns those in both <code>vocab1</code> and <code>vocab2</code>; <code>union</
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>v1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>3</span>], <span class='no'>letters</span>[<span class='fl'>4</span>:<span class='fl'>6</span>], <span class='no'>letters</span>[<span class='fl'>7</span>:<span class='fl'>9</span>])
 <span class='no'>v2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>letters</span>[(<span class='fl'>1</span>:<span class='fl'>3</span>)+<span class='fl'>1</span>], <span class='no'>letters</span>[(<span class='fl'>4</span>:<span class='fl'>6</span>)-<span class='fl'>2</span>], <span class='no'>letters</span>[<span class='fl'>7</span>])
-<span class='fu'>compare_convo</span>(<span class='no'>v1</span>, <span class='no'>v2</span>, <span class='no'>setdiff</span>)</div><div class='output co'>#&gt; <span class='error'>Error in switch(fx, setdiff = convo_setdiff, intersect = convo_intersect,     union = convo_union): EXPR must be a length 1 vector</span></div><div class='input'><span class='fu'>compare_convo</span>(<span class='no'>v1</span>, <span class='no'>v2</span>, <span class='no'>union</span>)</div><div class='output co'>#&gt; <span class='error'>Error in switch(fx, setdiff = convo_setdiff, intersect = convo_intersect,     union = convo_union): EXPR must be a length 1 vector</span></div><div class='input'><span class='fu'>compare_convo</span>(<span class='no'>v1</span>, <span class='no'>v2</span>, <span class='no'>intersect</span>)</div><div class='output co'>#&gt; <span class='error'>Error in switch(fx, setdiff = convo_setdiff, intersect = convo_intersect,     union = convo_union): EXPR must be a length 1 vector</span></div></pre>
+<span class='fu'>compare_convo</span>(<span class='no'>v1</span>, <span class='no'>v2</span>, <span class='st'>"setdiff"</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt; [1] "a"
+#&gt; 
+#&gt; [[2]]
+#&gt; [1] "e" "f"
+#&gt; 
+#&gt; [[3]]
+#&gt; [1] "h" "i"
+#&gt; 
+#&gt; attr(,"class")
+#&gt; [1] "convomin" "list"    </div><div class='input'><span class='fu'>compare_convo</span>(<span class='no'>v1</span>, <span class='no'>v2</span>, <span class='st'>"union"</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt; [1] "b" "a" "c" "d"
+#&gt; 
+#&gt; [[2]]
+#&gt; [1] "b" "d" "e" "f" "c"
+#&gt; 
+#&gt; [[3]]
+#&gt; [1] "g" "h" "i"
+#&gt; 
+#&gt; attr(,"class")
+#&gt; [1] "convomin" "list"    </div><div class='input'><span class='fu'>compare_convo</span>(<span class='no'>v1</span>, <span class='no'>v2</span>, <span class='st'>"intersect"</span>)</div><div class='output co'>#&gt; [[1]]
+#&gt; [1] "b" "c"
+#&gt; 
+#&gt; [[2]]
+#&gt; [1] "d"
+#&gt; 
+#&gt; [[3]]
+#&gt; [1] "g"
+#&gt; 
+#&gt; attr(,"class")
+#&gt; [1] "convomin" "list"    </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
