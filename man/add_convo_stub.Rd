@@ -18,7 +18,7 @@ add_convo_stub(convo, level, stub, desc = NA, valid = NA)
 \item{valid}{Character vector. Optional \code{pointblank} validation checks for stub}
 }
 \value{
-
+\code{convo} object
 }
 \description{
 This function adds new stubs to a controlled vocabularly or overwrites existing stubs.

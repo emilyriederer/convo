@@ -13,7 +13,7 @@ against an existing one, this argument should take the new vocabulary.}
 \item{vocab2}{Vocabulary list (or \code{convo} object). In the case of validating a new vocabulary
 against an existing one, this argument should take the existing vocabulary.}
 
-\item{fx}{Comparison function. \code{setdiff} returns those in \code{vocab1} not in \code{vocab2}; \code{intersect}
+\item{fx}{Character string describing comparison function. \code{setdiff} returns those in \code{vocab1} not in \code{vocab2}; \code{intersect}
 returns those in both \code{vocab1} and \code{vocab2}; \code{union} returns all elements in either}
 }
 \value{
@@ -25,7 +25,7 @@ Compare vocabularies with set operations
 \examples{
 v1 <- list(letters[1:3], letters[4:6], letters[7:9])
 v2 <- list(letters[(1:3)+1], letters[(4:6)-2], letters[7])
-compare_convo(v1, v2, setdiff)
-compare_convo(v1, v2, union)
-compare_convo(v1, v2, intersect)
+compare_convo(v1, v2, "setdiff")
+compare_convo(v1, v2, "union")
+compare_convo(v1, v2, "intersect")
 }

@@ -4,7 +4,7 @@
 #'     against an existing one, this argument should take the new vocabulary.
 #' @param vocab2 Vocabulary list (or `convo` object). In the case of validating a new vocabulary
 #'     against an existing one, this argument should take the existing vocabulary.
-#' @param fx Comparison function. `setdiff` returns those in `vocab1` not in `vocab2`; `intersect`
+#' @param fx Character string describing comparison function. `setdiff` returns those in `vocab1` not in `vocab2`; `intersect`
 #'     returns those in both `vocab1` and `vocab2`; `union` returns all elements in either
 #'
 #' @return List (of class `convomin`) of mismatches
@@ -13,9 +13,9 @@
 #' @examples
 #' v1 <- list(letters[1:3], letters[4:6], letters[7:9])
 #' v2 <- list(letters[(1:3)+1], letters[(4:6)-2], letters[7])
-#' compare_convo(v1, v2, setdiff)
-#' compare_convo(v1, v2, union)
-#' compare_convo(v1, v2, intersect)
+#' compare_convo(v1, v2, "setdiff")
+#' compare_convo(v1, v2, "union")
+#' compare_convo(v1, v2, "intersect")
 compare_convo <- function(vocab1, vocab2, fx = c("setdiff", "intersect", "union")) {
 
   # if full convo object provided, extract only stubs ----

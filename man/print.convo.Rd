@@ -4,10 +4,12 @@
 \alias{print.convo}
 \title{Pretty print a convo object}
 \usage{
-\method{print}{convo}(l)
+\method{print}{convo}(x, ...)
 }
 \arguments{
-\item{l}{A \code{convo} object}
+\item{x}{A \code{convo} object}
+
+\item{...}{Additional arguments passed to function. Currently unused.}
 }
 \value{
 No return - pretty prints convo object

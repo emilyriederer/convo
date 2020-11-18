@@ -1,6 +1,7 @@
 #' Pretty print a convo object
 #'
-#' @param l A \code{convo} object
+#' @param x A \code{convo} object
+#' @param ... Additional arguments passed to function. Currently unused.
 #'
 #' @return No return - pretty prints convo object
 #' @export
@@ -9,8 +10,9 @@
 #' l <- c("a_b")
 #' convo <- parse_stubs(l)
 #' print(convo)
-print.convo <- function(l) {
+print.convo <- function(x, ...) {
 
+  l <- x
   titles <- paste("Level", 1:length(l))
   values <- vapply(
     lapply(get_stubs(l), function(x) paste("-", x)),

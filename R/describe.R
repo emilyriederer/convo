@@ -16,7 +16,7 @@
 describe_names <- function(vars, convo, desc_str = "{level1} of entity {level2}") {
 
   vars_df <- parse_df(vars)
-  desc <- unlist(setNames(convo:::get_desc(convo), NULL))
+  desc <- unlist(setNames(get_desc(convo), NULL))
   desc_str_mod <- gsub("\\{", "\\{desc[", desc_str)
   desc_str_mod <- gsub("\\}", "]\\}", desc_str_mod)
   desc_out <- glue::glue_data(vars_df, desc_str_mod)

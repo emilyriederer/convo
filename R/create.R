@@ -30,7 +30,7 @@ create_convo <- function(l) {
 #' @param desc Character. Optional human-readable description of stub
 #' @param valid Character vector. Optional \code{pointblank} validation checks for stub
 #'
-#' @return
+#' @return \code{convo} object
 #' @export
 #'
 #' @examples
