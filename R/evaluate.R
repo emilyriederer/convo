@@ -2,6 +2,7 @@
 #'
 #' @param convo Controlled vocabulary object or list of stub names by level
 #' @param vbl_names Names to evaluate
+#' @param sep Character delimiting separation betwene levels of vocabulary
 #'
 #' @return Returns \code{convo} object (list) of violating names by level
 #' @export
@@ -10,13 +11,13 @@
 #' convo <- list(c("ind"), letters[1:3], c("pre", "post"))
 #' vbl_names <- c("ind_a", "ind_d", "amt_c", "cat_c_pre", "cat_c_post")
 #' evaluate_convo(convo, vbl_names)
-evaluate_convo <- function(convo, vbl_names) {
+evaluate_convo <- function(convo, vbl_names, sep = "_") {
 
   if (inherits(convo, "convo")) {convo <- get_stubs(convo)}
 
   convo_regex <-
     vapply(1:length(convo),
-           FUN = function(x) to_regex(convo, x),
+           FUN = function(x) to_regex(convo, x, sep),
            FUN.VALUE = character(1)
     )
 

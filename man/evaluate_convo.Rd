@@ -4,12 +4,14 @@
 \alias{evaluate_convo}
 \title{Evaluate a set of names against a controlled vocabulary}
 \usage{
-evaluate_convo(convo, vbl_names)
+evaluate_convo(convo, vbl_names, sep = "_")
 }
 \arguments{
 \item{convo}{Controlled vocabulary object or list of stub names by level}
 
 \item{vbl_names}{Names to evaluate}
+
+\item{sep}{Character delimiting separation betwene levels of vocabulary}
 }
 \value{
 Returns \code{convo} object (list) of violating names by level
