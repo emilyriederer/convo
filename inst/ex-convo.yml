@@ -1,0 +1,42 @@
+level1:
+  ID:
+    desc: Unique identifier
+    valid:
+      - col_vals_not_null()
+      - col_is_numeric()
+      - col_vals_between(1000, 99999)
+  IND:
+    desc: Binary indicator
+    valid:
+      - col_is_numeric()
+      - col_vals_in_set(c(0,1))
+  AMT:
+    desc: Non-negative, summable quantity
+    valid:
+      - col_is_numeric()
+      - col_vals_gte(0)
+  VAL:
+    desc: Value
+    valid:
+      - col_is_numeric()
+  CAT:
+    desc: Category
+    valid:
+      - col_is_character()
+  CD:
+    desc: System-generated code
+    valid:
+      - col_is_character()
+  DT:
+    desc: Calendar date in YYYY-MM-DD format
+    valid:
+      - col_is_date()
+level2:
+  A:
+    desc: Type A
+  C:
+    desc: Type C
+  D:
+    desc: Type D
+level3:
+  "\\d{4}": []

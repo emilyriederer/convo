@@ -1,0 +1,105 @@
+#' Generate YAML for pointblank validation agent from convo
+#'
+#' @param convo \code{convo} object read from YAML
+#' @param col_names Character vector of column names
+#' @param filename Name of YAML file to create
+#' @param path Optional path to directory in which YAML file should be created
+#'
+#' @return Does not return. Call function for side-effect of writing file.
+#' @export
+#'
+#' @importFrom stats setNames
+#' @importFrom utils capture.output
+#'
+#' @examples
+#' \dontrun{
+#' filepath <- system.file("", "ex-convo.yml", package = "convo")
+#' convo <- read_convo(filepath)
+#' write_pb(convo, c("IND_A", "AMT_B"), filename = "convo-validation.yml", path = ".")
+#' }
+write_pb <- function(convo, col_names, filename = "convo-validation.yml", path = ".") {
+
+  if(!requireNamespace("pointblank", quietly = TRUE)) {
+    stop(
+      "The package 'pointblank' is required to use function convo::write_pb()",
+      "Please install from CRAN and retry."
+    )
+  }
+
+  stubs <- names(convo[[1]])
+  funs  <- lapply(convo[[1]], function(x) x[["valid"]])
+  df_code <-
+    sprintf("setNames(as.data.frame(matrix(1, ncol = %d)), c( %s))",
+            length(col_names),
+            paste0("'", col_names, "'", collapse = ",")
+            )
+
+  edit_expect <- function(stub, fun) {
+    stub_prep <- paste0("(", "starts_with('", stub, "')")
+    stub_prep <- ifelse(!grepl("\\(\\)", fun), paste0(stub_prep, ", "), stub_prep)
+    final <- sub("\\(", stub_prep, fun)
+    return(final)
+  }
+  stubs_funs <- mapply(edit_expect,
+                       stub = rep(stubs, times = vapply(funs, length, numeric(1))),
+                       fun = unlist(funs))
+  stubs_funs_step <- vapply(1:length(stubs_funs),
+                            FUN = function(x) gsub("\\)$", paste0(", step_id = ", x, ")"), stubs_funs[x]),
+                            FUN.VALUE = character(1))
+  pb_fun_call <- paste0("yaml_write(filename = '", filename, "', path = '", path, "')")
+  code_lines <- c(paste0("create_agent(read_fn = ~", df_code,")"),
+                  stubs_funs_step,
+                  pb_fun_call)
+  code_lines <- paste0("pointblank::", code_lines)
+  code <- paste(code_lines, collapse = " %>% ")
+
+  eval(parse(text = code))
+
+}
+
+
+
+#' Generate agent object for validation of controlled vocabulary conditions for a data set
+#'
+#' @inheritParams write_pb
+#' @param tbl The input table passed to \code{pointblank::create_agent()}
+#'
+#' @return \code{pointblank} agent for validation pipeline
+#' @export
+#'
+#' @examples
+#' filepath <- system.file("", "ex-convo.yml", package = "convo")
+#' convo <- read_convo(filepath)
+#' agent <- create_pb_agent(convo, data.frame(IND_A = 1, IND_B = 5, DT_B = as.Date("2020-01-01")))
+create_pb_agent <- function(convo, tbl) {
+
+  if(!requireNamespace("pointblank", quietly = TRUE)) {
+    stop(
+      "The package 'pointblank' is required to use function convo::write_pb_yaml()",
+      "Please install from CRAN and retry."
+    )
+  }
+
+  stubs <- names(convo[[1]])
+  funs  <- lapply(convo[[1]], function(x) x[["valid"]])
+
+  edit_expect <- function(stub, fun) {
+    stub_prep <- paste0("(", "starts_with('", stub, "')")
+    stub_prep <- ifelse(!grepl("\\(\\)", fun), paste0(stub_prep, ", "), stub_prep)
+    final <- sub("\\(", stub_prep, fun)
+    return(final)
+  }
+  stubs_funs <- mapply(edit_expect,
+                       stub = rep(stubs, times = vapply(funs, length, numeric(1))),
+                       fun = unlist(funs))
+  stubs_funs_step <- vapply(1:length(stubs_funs),
+                            FUN = function(x) gsub("\\)$", paste0(", step_id = ", x, ")"), stubs_funs[x]),
+                            FUN.VALUE = character(1))
+  code_lines <- c(paste0("create_agent(tbl)"), stubs_funs_step)
+  code_lines <- paste0("pointblank::", code_lines)
+  code <- paste(code_lines, collapse = " %>% ")
+
+  eval(parse(text = code))
+
+}
+

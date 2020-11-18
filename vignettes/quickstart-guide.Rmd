@@ -1,0 +1,119 @@
+---
+title: "Quickstart guide"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Quickstart guide}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(convo)
+```
+
+## Define
+
+Define stubs and optional metadata in YAML:
+
+```{yaml, code=xfun::read_utf8(system.file("", "ex-convo.yml", package = "convo")), eval = FALSE}
+```
+
+Read into R:
+
+```{r}
+filepath <- system.file("", "ex-convo.yml", package = "convo")
+convo <- read_convo(filepath)
+print(convo)
+```
+
+## Evaluate & Compare 
+
+Evaluate a set of names (e.g. variable or file names) against the `convo` object to find violations:
+
+```{r}
+col_names <- c("ID_A", "IND_A", "XYZ_D", "AMT_B", "AMT_Q", "ID_A_1234", "ID_A_12")
+evaluate_convo(convo, col_names)
+```
+
+Compare stub lists and identify new potential entries (stubs used in variables but not in controlled vocabulary):
+
+```{r}
+convo_colnames <- parse_stubs(col_names)
+convo_colnames
+compare_convo(convo_colnames, convo, fx = "setdiff")
+```
+
+Or merge needed new stubs into the existing `convo`:
+
+```{r}
+convo_union <- compare_convo(convo_colnames, convo, fx = "union")
+convo_union
+```
+
+## Record
+
+After conducting set operations on a `convo` as shown above, a new `convo` YAML specification can be written back out to YAML:
+
+```{r}
+write_convo(convo_union, filename = "new-convo.yml", path = tempdir())
+```
+
+```{yaml, code= file.path(tempdir(), "ex-convo.yml"), eval = FALSE}
+```
+
+## Document
+
+Make data dictionary:
+
+```{r}
+vars <- c("AMT_A_2019", "IND_C_2020")
+desc_df <- describe_names(vars, convo, desc_str = "{level1} of {level2} in given year")
+DT::datatable(desc_df)
+```
+
+Visualize data as controlled vocabulary components:
+
+```{r}
+vbls <-  c("AMT_A_2019", "AMT_B", "AMT_C", "IND_A", "IND_B_2020")
+vbls_df <- parse_df(vbls)
+viz_names(vbls_df)
+```
+
+## Validate 
+
+Generate a `pointblank` agent for data validation:
+
+```{r}
+filepath <- system.file("", "ex-convo.yml", package = "convo")
+convo <- read_convo(filepath)
+agent <- create_pb_agent(convo, data.frame(IND_A = 1, IND_B = 5, DT_B = as.Date("2020-01-01")))
+pointblank::interrogate(agent)
+```
+
+Or create a `pointblank` YAML file for portability: 
+
+```{r echo = FALSE}
+tmp <- gsub("\\\\", "/", tempdir())
+write_pb(convo, c("IND_A", "AMT_B"), filename = "convo-validation.yml", path = tmp)
+```
+
+```{r eval = FALSE}
+filepath <- system.file("", "ex-convo.yml", package = "convo")
+convo <- read_convo(filepath)
+write_pb(convo, c("IND_A", "AMT_B"), filename = "convo-validation.yml", path = tempdir())
+```
+
+```{yaml, code=xfun::read_utf8(file.path(tempdir(), "convo-validation.yml")), eval = FALSE}
+```
+
+
+
+
+

@@ -1,0 +1,29 @@
+Package: convo
+Title: Compare and validate controlled vocabularies
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Emily",
+           family = "Riederer",
+           role = c("aut", "cre"),
+           email = "emilyriederer@gmail.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: 
+    yaml,
+    testthat,
+    collapsibleTree,
+    pointblank,
+    knitr,
+    rmarkdown,
+    DT
+VignetteBuilder: knitr
+Imports: 
+    magrittr,
+    glue,
+    stats,
+    utils
