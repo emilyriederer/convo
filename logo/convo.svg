@@ -7,41 +7,45 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   sodipodi:docname="convo.svg"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   id="svg8"
-   version="1.1"
-   viewBox="0 0 210 297"
+   inkscape:export-ydpi="96"
+   inkscape:export-xdpi="96"
+   inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
+   width="210mm"
    height="297mm"
-   width="210mm">
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="convo.svg">
   <defs
      id="defs2">
     <rect
-       id="rect14"
-       height="20.614326"
-       width="61.007262"
+       x="49.864383"
        y="60.171546"
-       x="49.864383" />
+       width="61.007262"
+       height="20.614326"
+       id="rect14" />
   </defs>
   <sodipodi:namedview
-     inkscape:window-maximized="1"
-     inkscape:window-y="-11"
-     inkscape:window-x="-11"
-     inkscape:window-height="986"
-     inkscape:window-width="1920"
-     showgrid="false"
-     inkscape:document-rotation="0"
-     inkscape:current-layer="layer1"
-     inkscape:document-units="mm"
-     inkscape:cy="298.10169"
-     inkscape:cx="599.08969"
-     inkscape:zoom="2.6863962"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
-     borderopacity="1.0"
-     bordercolor="#666666"
+     inkscape:snap-global="false"
+     id="base"
      pagecolor="#ffffff"
-     id="base" />
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.8224982"
+     inkscape:cx="588.75659"
+     inkscape:cy="312.46296"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="986"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -50,183 +54,263 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
-     id="layer1"
+     inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     inkscape:label="Layer 1">
+     id="layer1">
     <path
-       inkscape:export-ydpi="96"
-       inkscape:export-xdpi="96"
-       inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
-       d="m 185.83645,95.790247 -25.91389,14.961393 -25.91389,-14.961393 0,-29.922779 25.91389,-14.96139 25.91389,14.96139 z"
-       inkscape:randomized="0"
-       inkscape:rounded="0"
-       inkscape:flatsided="true"
-       sodipodi:arg2="1.0471976"
-       sodipodi:arg1="0.52359878"
-       sodipodi:r2="25.913885"
-       sodipodi:r1="29.922779"
-       sodipodi:cy="80.828857"
-       sodipodi:cx="159.92256"
-       sodipodi:sides="6"
+       sodipodi:type="star"
+       style="fill:#fff6d5;stroke:#ffcc00;stroke-width:1;stroke-linecap:round;paint-order:fill markers stroke;stroke-miterlimit:4;stroke-dasharray:none"
        id="path10"
-       style="fill:#f2f2f2;stroke:#000000;stroke-width:0.5;stroke-linecap:round;paint-order:fill markers stroke;stroke-miterlimit:4;stroke-dasharray:none"
-       sodipodi:type="star" />
+       sodipodi:sides="6"
+       sodipodi:cx="159.92256"
+       sodipodi:cy="80.828857"
+       sodipodi:r1="29.922779"
+       sodipodi:r2="25.913885"
+       sodipodi:arg1="0.52359878"
+       sodipodi:arg2="1.0471976"
+       inkscape:flatsided="true"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 185.83645,95.790247 -25.91389,14.961393 -25.91389,-14.961393 0,-29.922779 25.91389,-14.96139 25.91389,14.96139 z"
+       inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
     <text
-       style="font-style:normal;font-weight:normal;font-size:21.1667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect14);fill:#000000;fill-opacity:1;stroke:none;"
+       xml:space="preserve"
        id="text12"
-       xml:space="preserve"><tspan
+       style="font-style:normal;font-weight:normal;font-size:21.1667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect14);fill:#000000;fill-opacity:1;stroke:none;"><tspan
          style="visibility:hidden"
          x="49.865234"
          y="100.09618"><tspan
            dx="0 6.3871865 6.3871865"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.5833px;font-family:'Lucida Console';-inkscape-font-specification:'Lucida Console';fill:#000000">con</tspan></tspan></text>
     <text
-       inkscape:export-ydpi="96"
-       inkscape:export-xdpi="96"
-       inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
-       id="text20"
-       y="78.278732"
-       x="138.49405"
-       style="font-style:normal;font-weight:normal;font-size:17.6389px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffcc00;fill-opacity:1;stroke:none;stroke-width:0.264583;"
-       xml:space="preserve"><tspan
-         style="font-size:17.6389px;fill:#ffcc00;stroke-width:0.264583;"
-         y="78.278732"
-         x="138.49405"
-         id="tspan18"
-         sodipodi:role="line">c o n</tspan></text>
-    <text
-       inkscape:export-ydpi="96"
-       inkscape:export-xdpi="96"
-       inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:17.6389px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffcc00;fill-opacity:1;stroke:none;stroke-width:0.264583;"
-       x="146.44362"
-       y="95.212082"
-       id="text24"><tspan
-         sodipodi:role="line"
-         id="tspan22"
-         x="146.44362"
-         y="95.212082"
-         style="font-size:17.6389px;fill:#ffcc00;stroke-width:0.264583;">v o</tspan></text>
-    <ellipse
-       inkscape:export-ydpi="96"
-       inkscape:export-xdpi="96"
+       x="138.49405"
+       y="78.278732"
+       id="text20"
        inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan18"
+         x="138.49405"
+         y="78.278732"
+         style="font-size:17.6389px;fill:#ffcc00;stroke-width:0.264583;">c o n</tspan></text>
+    <text
+       id="text24"
+       y="95.212082"
+       x="146.44362"
+       style="font-style:normal;font-weight:normal;font-size:17.6389px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffcc00;fill-opacity:1;stroke:none;stroke-width:0.264583;"
+       xml:space="preserve"
+       inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         style="font-size:17.6389px;fill:#ffcc00;stroke-width:0.264583;"
+         y="95.212082"
+         x="146.44362"
+         id="tspan22"
+         sodipodi:role="line">v o</tspan></text>
+    <ellipse
+       style="fill:#ffcc00;stroke:none;stroke-width:0.589863;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
+       id="path849"
+       cx="159.2092"
+       cy="73.276611"
+       rx="3.7918675"
+       ry="4.2350731"
+       inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <ellipse
        ry="4.2350731"
        rx="3.7918675"
-       cy="73.276611"
-       cx="159.2092"
-       id="path849"
-       style="fill:#ffcc00;stroke:none;stroke-width:0.589863;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke" />
-    <ellipse
-       inkscape:export-ydpi="96"
-       inkscape:export-xdpi="96"
-       inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
-       style="fill:#ffcc00;stroke:none;stroke-width:0.589863;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
-       id="ellipse851"
-       cx="168.46727"
        cy="90.01992"
-       rx="3.7918675"
-       ry="4.2350731" />
-    <ellipse
-       inkscape:export-ydpi="96"
-       inkscape:export-xdpi="96"
+       cx="168.46727"
+       id="ellipse851"
+       style="fill:#ffcc00;stroke:none;stroke-width:0.589863;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
        inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
-       ry="1.0564235"
-       rx="0.93213838"
-       cy="72.26474"
-       cx="157.76503"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <ellipse
+       style="fill:#ffffff;stroke:none;stroke-width:0.630951;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
        id="path853"
-       style="fill:#ffffff;stroke:none;stroke-width:0.630951;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke" />
-    <ellipse
-       inkscape:export-ydpi="96"
-       inkscape:export-xdpi="96"
-       inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
-       style="fill:#ffffff;stroke:none;stroke-width:0.630951;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
-       id="ellipse855"
-       cx="161.12071"
+       cx="157.76503"
        cy="72.26474"
        rx="0.93213838"
-       ry="1.0564235" />
-    <ellipse
-       inkscape:export-ydpi="96"
-       inkscape:export-xdpi="96"
+       ry="1.0564235"
        inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
-       style="fill:#000000;stroke:none;stroke-width:0.459017;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
-       id="ellipse857"
-       cx="157.91672"
-       cy="72.511826"
-       rx="0.67813051"
-       ry="0.76854789" />
-    <ellipse
-       inkscape:export-ydpi="96"
        inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <ellipse
+       ry="1.0564235"
+       rx="0.93213838"
+       cy="72.26474"
+       cx="161.12071"
+       id="ellipse855"
+       style="fill:#ffffff;stroke:none;stroke-width:0.630951;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
        inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <ellipse
        ry="0.76854789"
        rx="0.67813051"
-       cy="72.483734"
-       cx="161.27615"
+       cy="72.511826"
+       cx="157.91672"
+       id="ellipse857"
+       style="fill:#000000;stroke:none;stroke-width:0.459017;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
+       inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <ellipse
+       style="fill:#000000;stroke:none;stroke-width:0.459017;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
        id="ellipse859"
-       style="fill:#000000;stroke:none;stroke-width:0.459017;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke" />
-    <ellipse
-       inkscape:export-ydpi="96"
-       inkscape:export-xdpi="96"
+       cx="161.27615"
+       cy="72.483734"
+       rx="0.67813051"
+       ry="0.76854789"
        inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
-       style="fill:#ffffff;stroke:none;stroke-width:0.630951;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
-       id="ellipse865"
-       cx="166.96132"
-       cy="89.106544"
-       rx="0.93213838"
-       ry="1.0564235" />
-    <ellipse
-       inkscape:export-ydpi="96"
        inkscape:export-xdpi="96"
-       inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
+       inkscape:export-ydpi="96" />
+    <ellipse
        ry="1.0564235"
        rx="0.93213838"
        cy="89.106544"
-       cx="170.11301"
-       id="ellipse869"
-       style="fill:#ffffff;stroke:none;stroke-width:0.630951;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke" />
-    <ellipse
-       inkscape:export-ydpi="96"
-       inkscape:export-xdpi="96"
+       cx="166.96132"
+       id="ellipse865"
+       style="fill:#ffffff;stroke:none;stroke-width:0.630951;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
        inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <ellipse
+       style="fill:#ffffff;stroke:none;stroke-width:0.630951;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
+       id="ellipse869"
+       cx="170.11301"
+       cy="89.106544"
+       rx="0.93213838"
+       ry="1.0564235"
+       inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <ellipse
+       style="fill:#000000;stroke:none;stroke-width:0.459017;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
+       id="ellipse861"
+       cx="166.78819"
+       cy="88.881248"
+       rx="0.67813051"
+       ry="0.76854789"
+       inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <ellipse
        ry="0.76854789"
        rx="0.67813051"
-       cy="88.881248"
-       cx="166.78819"
-       id="ellipse861"
-       style="fill:#000000;stroke:none;stroke-width:0.459017;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke" />
-    <ellipse
-       inkscape:export-ydpi="96"
-       inkscape:export-xdpi="96"
-       inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
-       style="fill:#000000;stroke:none;stroke-width:0.459017;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
-       id="ellipse863"
-       cx="169.93098"
        cy="88.921059"
-       rx="0.67813051"
-       ry="0.76854789" />
-    <path
-       inkscape:export-ydpi="96"
-       inkscape:export-xdpi="96"
+       cx="169.93098"
+       id="ellipse863"
+       style="fill:#000000;stroke:none;stroke-width:0.459017;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
        inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
-       id="path871"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 161.64138,74.963835 c 0,0 -1.53214,1.253575 -4.45715,-0.557144 0,0 1.81072,2.646436 3.96966,2.437507 z"
+       id="path871"
+       inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       id="path873"
+       d="m 165.86639,91.805636 c 0,0 2.22857,1.253575 5.15358,-0.557144 0,0 -2.15893,2.158935 -4.31787,1.950006 z"
+       style="fill:#000000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       id="path1492"
+       d="m 158.62162,82.586001 c 1.33451,0.923895 1.84779,-0.102655 1.84779,-0.102655 L 158.211,78.787761 c -0.51328,0.20531 -1.79647,-0.769912 -1.79647,-0.769912 z"
        style="fill:#000000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <path
-       inkscape:export-ydpi="96"
-       inkscape:export-xdpi="96"
-       inkscape:export-filename="C:\Users\emily\Desktop\convo\logo\convo.png"
-       sodipodi:nodetypes="cccc"
-       style="fill:#000000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 165.86639,91.805636 c 0,0 2.22857,1.253575 5.15358,-0.557144 0,0 -2.15893,2.158935 -4.31787,1.950006 z"
-       id="path873" />
+       id="path1498"
+       d="m 163.94014,91.619646 c 0,0 -0.5646,-1.077878 -0.10266,-2.258412 l -2.87434,-4.670804 c 0,0 -0.71858,0.41062 -0.5646,1.283188 z"
+       style="fill:#000000;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <g
+       transform="rotate(164.10929,159.84171,84.028153)"
+       id="g1526">
+      <ellipse
+         transform="rotate(-5.0280401)"
+         ry="1.206197"
+         rx="0.71858543"
+         cy="96.894852"
+         cx="151.10196"
+         id="ellipse1518"
+         style="fill:#ffffff;stroke:#666666;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke" />
+      <ellipse
+         transform="rotate(-22.452889)"
+         ry="1.206197"
+         rx="0.71858543"
+         cy="137.6864"
+         cx="115.9341"
+         id="ellipse1520"
+         style="fill:#ffffff;stroke:#666666;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke" />
+      <ellipse
+         style="fill:#ffffff;stroke:#666666;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
+         id="ellipse1522"
+         cx="74.811378"
+         cy="164.23338"
+         rx="0.71858543"
+         ry="1.206197"
+         transform="rotate(-38.230596)" />
+      <rect
+         transform="matrix(0.92256825,-0.38583392,0.44358846,0.89623059,0,0)"
+         y="136.81181"
+         x="105.53349"
+         height="0.71472341"
+         width="2.0771661"
+         id="rect1524"
+         style="fill:#ffffff;stroke:#666666;stroke-width:0.119291;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke" />
+    </g>
+    <g
+       id="g1516">
+      <ellipse
+         style="fill:#ffffff;stroke:#666666;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
+         id="path1500"
+         cx="151.10196"
+         cy="96.894852"
+         rx="0.71858543"
+         ry="1.206197"
+         transform="rotate(-5.0280401)" />
+      <ellipse
+         style="fill:#ffffff;stroke:#666666;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
+         id="ellipse1506"
+         cx="115.9341"
+         cy="137.6864"
+         rx="0.71858543"
+         ry="1.206197"
+         transform="rotate(-22.452889)" />
+      <ellipse
+         transform="rotate(-38.230596)"
+         ry="1.206197"
+         rx="0.71858543"
+         cy="164.23338"
+         cx="74.811378"
+         id="ellipse1508"
+         style="fill:#ffffff;stroke:#666666;stroke-width:0.1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke" />
+      <rect
+         style="fill:#ffffff;stroke:#666666;stroke-width:0.119291;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
+         id="rect1510"
+         width="2.0771661"
+         height="0.71472341"
+         x="105.53349"
+         y="136.81181"
+         transform="matrix(0.92256825,-0.38583392,0.44358846,0.89623059,0,0)" />
+    </g>
   </g>
 </svg>

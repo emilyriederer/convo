@@ -40,6 +40,7 @@ devtools::install_github("emilyriederer/convo")
 - Current regex support slightly unreliable. Need to better document and expand
 - More aesthetic documentation (`describe_*()` functions)
 - Better set operations for combining instead of overwriting full `convo` specifications (not just stub lists)
+- Explore integration with `dm` package to validate names across a schema
 
 ## Example
 
