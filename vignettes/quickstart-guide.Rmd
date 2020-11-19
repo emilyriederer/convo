@@ -52,7 +52,14 @@ compare_convo(convo_colnames, convo, fx = "setdiff")
 
 (Note that if your names are separated by a different delimiter than `_`, you may pass that to `parse_stubs()` and most other functions shown in this demo using the `sep =` argument.)
 
-Or merge needed new stubs into the existing `convo`:
+If desired, newly uncovered stubs can be manually added to the `convo`:
+
+```{r}
+convo2 <- add_convo_stub(convo, level = 2, stub = "B", desc = "Type B")
+convo2 
+```
+
+Or, alternatively, the `compare_convo()` function can accept a `"union"` option to merge needed new stubs between two objects:
 
 ```{r}
 convo_union <- compare_convo(convo_colnames, convo, fx = "union")
