@@ -1,5 +1,5 @@
 Package: convo
-Title: Compare and validate controlled vocabularies
+Title: Enables conversations and contracts through controlled vocabulary naming conventions
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Emily",
@@ -7,7 +7,10 @@ Authors@R:
            role = c("aut", "cre"),
            email = "emilyriederer@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Description: Variable names and file names can be used to encode contracts or promises between
+    creators and users. The convo package helps to define controlled vocabularies for naming
+    variables and files, document the expectations these names imply, and validate realizations
+    of a vocabulary.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
