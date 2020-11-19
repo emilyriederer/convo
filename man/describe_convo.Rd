@@ -4,10 +4,12 @@
 \alias{describe_convo}
 \title{Create schema dictionary}
 \usage{
-describe_convo(convo)
+describe_convo(convo, include_valid = FALSE)
 }
 \arguments{
 \item{convo}{\code{convo} object containing controlled vocabulary}
+
+\item{include_valid}{Boolean whether to include human-readable documentation of related data validations}
 }
 \value{
 \code{data.frame} schema dictionary

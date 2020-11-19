@@ -38,6 +38,8 @@ devtools::install_github("emilyriederer/convo")
 - Current assumption is that realizations of a controlled vocabularly are all delimited by the same separator
   + to work better with filepaths, might potentially want to enable multiple types of delimeters
 - Current regex support slightly unreliable. Need to better document and expand
+- More aesthetic documentation (`describe_*()` functions)
+- Better set operations for combining instead of overwriting full `convo` specifications (not just stub lists)
 
 ## Example
 

@@ -29,6 +29,7 @@ describe_names <- function(vars, convo, desc_str = "{level1} of entity {level2}"
 #' Create schema dictionary
 #'
 #' @param convo \code{convo} object containing controlled vocabulary
+#' @param include_valid Boolean whether to include human-readable documentation of related data validations
 #'
 #' @return \code{data.frame} schema dictionary
 #' @export
@@ -37,7 +38,7 @@ describe_names <- function(vars, convo, desc_str = "{level1} of entity {level2}"
 #' filepath <- system.file("", "ex-convo.yml", package = "convo")
 #' convo <- read_convo(filepath)
 #' describe_convo(convo)
-describe_convo <- function(convo) {
+describe_convo <- function(convo, include_valid = FALSE) {
 
   descs <- get_desc(convo)
   stubs <- get_stubs(convo)
@@ -49,6 +50,30 @@ describe_convo <- function(convo) {
     stub =       unlist(stubs),
     stub_desc  = unlist(descs)
   )
+  row.names(desc_df)
+
+  if (include_valid) {
+
+    if(!requireNamespace("pointblank", quietly = TRUE)) {
+      stop(
+        "The package 'pointblank' is required to use function convo::write_pb()",
+        "Please install from CRAN and retry."
+      )
+    }
+
+    df <- setNames(as.data.frame(matrix(1, ncol = length(convo[[1]]))), names(convo[[1]]))
+    agent <- create_pb_agent(convo, df)
+    x_list <- pointblank::get_agent_x_list(agent)
+    validation_set <- x_list$validation_set
+    validation <- validation_set[c('column', 'brief')]
+    validation$column <- as.character(validation$column)
+    validation$brief <- gsub("(in `[A-Za-z]+` )|(`[A-Za-z]+` )", "", validation$brief)
+    valid_df <- aggregate(brief ~ column, data = validation, FUN = function(x) paste(x, collapse = ";"))
+    names(valid_df) <- c("stub", "checks")
+    cmbnd_df <- merge(x = desc_df, y = valid_df, by = "stub", all.x = TRUE)
+    desc_df <- cmbnd_df[order(cmbnd_df$level),]
+
+  }
 
   return(desc_df)
 
