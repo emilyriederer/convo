@@ -73,7 +73,7 @@ describe_convo <- function(convo, include_valid = FALSE, for_DT = TRUE) {
     valid_df <- aggregate(brief ~ column, data = validation, FUN = function(x) paste(x, collapse = sep))
     names(valid_df) <- c("stub", "checks")
     cmbnd_df <- merge(x = desc_df, y = valid_df, by = "stub", all.x = TRUE)
-    desc_df <- cmbnd_df[order(cmbnd_df$level),]
+    desc_df <- cmbnd_df[order(cmbnd_df$level), c("level", "stub", "stub_desc", "checks")]
 
   }
 

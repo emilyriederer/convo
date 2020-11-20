@@ -122,13 +122,7 @@ vbls_df <- parse_df(vbls)
 viz_names(vbls_df)
 ```
 
-Describe an overall `convo` specification:
-
-```{r}
-DT::datatable(describe_convo(convo))
-```
-
-Optionally include the "contracts" (or validation checks) in the documentation (also powered by `pointblank`):
+Describe an overall `convo` specification:. Optionally include the "contracts" (or validation checks) in the documentation (also powered by `pointblank`):
 
 ```{r}
 desc_df <- describe_convo(convo, include_valid = TRUE, for_DT = TRUE)
