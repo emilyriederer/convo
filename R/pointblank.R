@@ -26,26 +26,13 @@ write_pb <- function(convo, col_names, filename = "convo-validation.yml", path =
     )
   }
 
-  stubs <- names(convo[[1]])
-  funs  <- lapply(convo[[1]], function(x) x[["valid"]])
+  stubs_funs_step <- get_pb_lines(convo)
+
   df_code <-
     sprintf("setNames(as.data.frame(matrix(1, ncol = %d)), c( %s))",
             length(col_names),
             paste0("'", col_names, "'", collapse = ",")
-            )
-
-  edit_expect <- function(stub, fun) {
-    stub_prep <- paste0("(", "starts_with('", stub, "')")
-    stub_prep <- ifelse(!grepl("\\(\\)", fun), paste0(stub_prep, ", "), stub_prep)
-    final <- sub("\\(", stub_prep, fun)
-    return(final)
-  }
-  stubs_funs <- mapply(edit_expect,
-                       stub = rep(stubs, times = vapply(funs, length, numeric(1))),
-                       fun = unlist(funs))
-  stubs_funs_step <- vapply(1:length(stubs_funs),
-                            FUN = function(x) gsub("\\)$", paste0(", step_id = ", x, ")"), stubs_funs[x]),
-                            FUN.VALUE = character(1))
+    )
   pb_fun_call <- paste0("yaml_write(filename = '", filename, "', path = '", path, "')")
   code_lines <- c(paste0("create_agent(read_fn = ~", df_code,")"),
                   stubs_funs_step,
@@ -75,10 +62,22 @@ create_pb_agent <- function(convo, tbl) {
 
   if(!requireNamespace("pointblank", quietly = TRUE)) {
     stop(
-      "The package 'pointblank' is required to use function convo::write_pb_yaml()",
+      "The package 'pointblank' is required to use function convo::create_pb_agent()",
       "Please install from CRAN and retry."
     )
   }
+
+  stubs_funs_step <- get_pb_lines(convo)
+  code_lines <- c(paste0("create_agent(tbl)"), stubs_funs_step)
+  code_lines <- paste0("pointblank::", code_lines)
+  code <- paste(code_lines, collapse = " %>% ")
+  eval(parse(text = code))
+
+}
+
+#' @noRd
+#' @keywords internal
+get_pb_lines <- function(convo) {
 
   stubs <- names(convo[[1]])
   funs  <- lapply(convo[[1]], function(x) x[["valid"]])
@@ -95,11 +94,6 @@ create_pb_agent <- function(convo, tbl) {
   stubs_funs_step <- vapply(1:length(stubs_funs),
                             FUN = function(x) gsub("\\)$", paste0(", step_id = ", x, ")"), stubs_funs[x]),
                             FUN.VALUE = character(1))
-  code_lines <- c(paste0("create_agent(tbl)"), stubs_funs_step)
-  code_lines <- paste0("pointblank::", code_lines)
-  code <- paste(code_lines, collapse = " %>% ")
-
-  eval(parse(text = code))
+  return(stubs_funs_step)
 
 }
-
