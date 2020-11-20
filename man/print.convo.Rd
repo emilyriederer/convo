@@ -18,7 +18,8 @@ No return - pretty prints convo object
 Pretty print a convo object
 }
 \examples{
-l <- c("a_b")
+c <- create_convo(list(letters[1:3], letters[4:6]))
+print(c)
 convo <- parse_stubs(l)
 print(convo)
 }

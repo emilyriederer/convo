@@ -153,11 +153,11 @@
 <span class="co">#&gt; - CAT</span>
 <span class="co">#&gt; - CD</span>
 <span class="co">#&gt; - DT</span>
-<span class="co">#&gt;  Level 2</span>
+<span class="co">#&gt; Level 2</span>
 <span class="co">#&gt; - A</span>
 <span class="co">#&gt; - C</span>
 <span class="co">#&gt; - D</span>
-<span class="co">#&gt;  Level 3</span>
+<span class="co">#&gt; Level 3</span>
 <span class="co">#&gt; - \d{4}</span></pre></body></html></div>
 </div>
 <div id="evaluate-compare" class="section level2">
@@ -166,43 +166,37 @@
 <p>Evaluate a set of names (e.g. variable or file names) against the <code>convo</code> object to find violations:</p>
 <div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">col_names</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"ID_A"</span>, <span class="st">"IND_A"</span>, <span class="st">"XYZ_D"</span>, <span class="st">"AMT_B"</span>, <span class="st">"AMT_Q"</span>, <span class="st">"ID_A_1234"</span>, <span class="st">"ID_A_12"</span>)
 <span class="fu"><a href="../reference/evaluate_convo.html">evaluate_convo</a></span>(<span class="no">convo</span>, <span class="no">col_names</span>)
-<span class="co">#&gt; [[1]]</span>
-<span class="co">#&gt; [1] "XYZ_D"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; [[2]]</span>
-<span class="co">#&gt; [1] "AMT_B" "AMT_Q"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; [[3]]</span>
-<span class="co">#&gt; [1] "ID_A_12"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; attr(,"class")</span>
-<span class="co">#&gt; [1] "convomin" "list"</span></pre></body></html></div>
+<span class="co">#&gt; Level 1</span>
+<span class="co">#&gt; - XYZ_D</span>
+<span class="co">#&gt; Level 2</span>
+<span class="co">#&gt; - AMT_B</span>
+<span class="co">#&gt; - AMT_Q</span>
+<span class="co">#&gt; Level 3</span>
+<span class="co">#&gt; - ID_A_12</span></pre></body></html></div>
 <p>Compare stub lists and identify new potential entries (stubs used in variables but not in controlled vocabulary):</p>
 <div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">convo_colnames</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/parse_stubs.html">parse_stubs</a></span>(<span class="no">col_names</span>)
 <span class="no">convo_colnames</span>
-<span class="co">#&gt; [[1]]</span>
-<span class="co">#&gt; [1] "ID"  "IND" "XYZ" "AMT"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; [[2]]</span>
-<span class="co">#&gt; [1] "A" "D" "B" "Q"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; [[3]]</span>
-<span class="co">#&gt; [1] "1234" "12"  </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; attr(,"class")</span>
-<span class="co">#&gt; [1] "convomin" "list"</span>
+<span class="co">#&gt; Level 1</span>
+<span class="co">#&gt; - ID</span>
+<span class="co">#&gt; - IND</span>
+<span class="co">#&gt; - XYZ</span>
+<span class="co">#&gt; - AMT</span>
+<span class="co">#&gt; Level 2</span>
+<span class="co">#&gt; - A</span>
+<span class="co">#&gt; - D</span>
+<span class="co">#&gt; - B</span>
+<span class="co">#&gt; - Q</span>
+<span class="co">#&gt; Level 3</span>
+<span class="co">#&gt; - 1234</span>
+<span class="co">#&gt; - 12</span>
 <span class="fu"><a href="../reference/compare_convo.html">compare_convo</a></span>(<span class="no">convo_colnames</span>, <span class="no">convo</span>, <span class="kw">fx</span> <span class="kw">=</span> <span class="st">"setdiff"</span>)
-<span class="co">#&gt; [[1]]</span>
-<span class="co">#&gt; [1] "XYZ"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; [[2]]</span>
-<span class="co">#&gt; [1] "B" "Q"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; [[3]]</span>
-<span class="co">#&gt; [1] "12"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; attr(,"class")</span>
-<span class="co">#&gt; [1] "convomin" "list"</span></pre></body></html></div>
+<span class="co">#&gt; Level 1</span>
+<span class="co">#&gt; - XYZ</span>
+<span class="co">#&gt; Level 2</span>
+<span class="co">#&gt; - B</span>
+<span class="co">#&gt; - Q</span>
+<span class="co">#&gt; Level 3</span>
+<span class="co">#&gt; - 12</span></pre></body></html></div>
 <p>(Note that if your names are separated by a different delimiter than <code>_</code>, you may pass that to <code><a href="../reference/parse_stubs.html">parse_stubs()</a></code> and most other functions shown in this demo using the <code>sep =</code> argument.)</p>
 <p>If desired, newly uncovered stubs can be manually added to the <code>convo</code>:</p>
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">convo2</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/add_convo_stub.html">add_convo_stub</a></span>(<span class="no">convo</span>, <span class="kw">level</span> <span class="kw">=</span> <span class="fl">2</span>, <span class="kw">stub</span> <span class="kw">=</span> <span class="st">"B"</span>, <span class="kw">desc</span> <span class="kw">=</span> <span class="st">"Type B"</span>)
@@ -215,34 +209,41 @@
 <span class="co">#&gt; - CAT</span>
 <span class="co">#&gt; - CD</span>
 <span class="co">#&gt; - DT</span>
-<span class="co">#&gt;  Level 2</span>
+<span class="co">#&gt; Level 2</span>
 <span class="co">#&gt; - A</span>
 <span class="co">#&gt; - C</span>
 <span class="co">#&gt; - D</span>
 <span class="co">#&gt; - B</span>
-<span class="co">#&gt;  Level 3</span>
+<span class="co">#&gt; Level 3</span>
 <span class="co">#&gt; - \d{4}</span></pre></body></html></div>
 <p>Or, alternatively, the <code><a href="../reference/compare_convo.html">compare_convo()</a></code> function can accept a <code>"union"</code> option to merge needed new stubs between two objects:</p>
 <div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">convo_union</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/compare_convo.html">compare_convo</a></span>(<span class="no">convo_colnames</span>, <span class="no">convo</span>, <span class="kw">fx</span> <span class="kw">=</span> <span class="st">"union"</span>)
 <span class="no">convo_union</span>
-<span class="co">#&gt; [[1]]</span>
-<span class="co">#&gt; [1] "ID"  "IND" "XYZ" "AMT" "VAL" "CAT" "CD"  "DT" </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; [[2]]</span>
-<span class="co">#&gt; [1] "A" "D" "B" "Q" "C"</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; [[3]]</span>
-<span class="co">#&gt; [1] "\\d{4}" "12"    </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; attr(,"class")</span>
-<span class="co">#&gt; [1] "convomin" "list"</span></pre></body></html></div>
+<span class="co">#&gt; Level 1</span>
+<span class="co">#&gt; - ID</span>
+<span class="co">#&gt; - IND</span>
+<span class="co">#&gt; - XYZ</span>
+<span class="co">#&gt; - AMT</span>
+<span class="co">#&gt; - VAL</span>
+<span class="co">#&gt; - CAT</span>
+<span class="co">#&gt; - CD</span>
+<span class="co">#&gt; - DT</span>
+<span class="co">#&gt; Level 2</span>
+<span class="co">#&gt; - A</span>
+<span class="co">#&gt; - D</span>
+<span class="co">#&gt; - B</span>
+<span class="co">#&gt; - Q</span>
+<span class="co">#&gt; - C</span>
+<span class="co">#&gt; Level 3</span>
+<span class="co">#&gt; - \d{4}</span>
+<span class="co">#&gt; - 12</span></pre></body></html></div>
 </div>
 <div id="record" class="section level2">
 <h2 class="hasAnchor">
 <a href="#record" class="anchor"></a>Record</h2>
 <p>After conducting set operations on a <code>convo</code> as shown above, a new <code>convo</code> YAML specification can be written back out to YAML:</p>
 <div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="fu"><a href="../reference/write_convo.html">write_convo</a></span>(<span class="no">convo_union</span>, <span class="kw">filename</span> <span class="kw">=</span> <span class="st">"new-convo.yml"</span>, <span class="kw">path</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>())</pre></body></html></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1"></a><span class="at">C:\Users\emily\AppData\Local\Temp\RtmpYniv0j/ex-convo.yml</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1"></a><span class="at">C:\Users\emily\AppData\Local\Temp\Rtmp8A6drF/ex-convo.yml</span></span></code></pre></div>
 </div>
 <div id="validate" class="section level2">
 <h2 class="hasAnchor">
@@ -634,7 +635,7 @@ html {
     </tr>
 <tr>
 <th colspan="14" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border" style="font-size: 12px; text-align: left;">
-<span style="text-decoration-style:solid;text-decoration-color:#ADD8E6;text-decoration-line:underline;text-underline-position:under;color:#333333;font-variant-numeric:tabular-nums;padding-left:4px;margin-right:5px;padding-right:2px;">[2020-11-19|07:58:24]</span>
+<span style="text-decoration-style:solid;text-decoration-color:#ADD8E6;text-decoration-line:underline;text-underline-position:under;color:#333333;font-variant-numeric:tabular-nums;padding-left:4px;margin-right:5px;padding-right:2px;">[2020-11-20|04:44:23]</span>
 <div style="height:25px;">
 <span style="background-color:#9933CC;color:#FFFFFF;padding:0.5em 0.5em;position:inherit;text-transform:uppercase;margin:5px 0px 5px 5px;font-weight:bold;border:solid 1px #9933CC;padding:2px 15px 2px 15px;font-size:smaller;">data frame</span>
 <span style="background-color:none;color:#222222;padding:0.5em 0.5em;position:inherit;margin:5px 10px 5px -4px;font-weight:bold;border:solid 1px #9933CC;padding:2px 15px 2px 15px;font-size:smaller;">tbl</span>
@@ -883,7 +884,7 @@ html {
 </tbody>
 <tfoot class="gt_sourcenotes"><tr>
 <td class="gt_sourcenote" colspan="14">
-<span style="background-color: #FFF;color: #444;padding: 0.5em 0.5em;position: inherit;text-transform: uppercase;margin-left: 10px;border: solid 1px #999999;font-variant-numeric: tabular-nums;border-radius: 0;padding: 2px 10px 2px 10px;font-size: smaller;">2020-11-19 07:58:24 CST</span><span style="background-color: #FFF;color: #444;padding: 0.5em 0.5em;position: inherit;margin: 5px 1px 5px 0;border: solid 1px #999999;border-left: none;font-variant-numeric: tabular-nums;border-radius: 0;padding: 2px 10px 2px 10px;font-size: smaller;">&lt; 1 s</span><span style="background-color: #FFF;color: #444;padding: 0.5em 0.5em;position: inherit;text-transform: uppercase;margin: 5px 1px 5px -1px;border: solid 1px #999999;border-left: none;border-radius: 0;padding: 2px 10px 2px 10px;font-size: smaller;">2020-11-19 07:58:24 CST</span>
+<span style="background-color: #FFF;color: #444;padding: 0.5em 0.5em;position: inherit;text-transform: uppercase;margin-left: 10px;border: solid 1px #999999;font-variant-numeric: tabular-nums;border-radius: 0;padding: 2px 10px 2px 10px;font-size: smaller;">2020-11-20 04:44:23 CST</span><span style="background-color: #FFF;color: #444;padding: 0.5em 0.5em;position: inherit;margin: 5px 1px 5px 0;border: solid 1px #999999;border-left: none;font-variant-numeric: tabular-nums;border-radius: 0;padding: 2px 10px 2px 10px;font-size: smaller;">&lt; 1 s</span><span style="background-color: #FFF;color: #444;padding: 0.5em 0.5em;position: inherit;text-transform: uppercase;margin: 5px 1px 5px -1px;border: solid 1px #999999;border-left: none;border-radius: 0;padding: 2px 10px 2px 10px;font-size: smaller;">2020-11-20 04:44:23 CST</span>
 </td>
     </tr></tfoot>
 </table></div>
@@ -893,7 +894,7 @@ html {
 <span class="fu"><a href="../reference/write_pb.html">write_pb</a></span>(<span class="no">convo</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"IND_A"</span>, <span class="st">"AMT_B"</span>), <span class="kw">filename</span> <span class="kw">=</span> <span class="st">"convo-validation.yml"</span>, <span class="kw">path</span> <span class="kw">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>())</pre></body></html></div>
 <div class="sourceCode" id="cb12"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">read_fn</span><span class="kw">:</span><span class="at"> ~setNames(as.data.frame(matrix(1, ncol = 2)), c("IND_A", "AMT_B"))</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a><span class="fu">tbl_name</span><span class="kw">:</span><span class="at"> .na.character</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">'[2020-11-19|07:58:27]'</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">label</span><span class="kw">:</span><span class="at"> </span><span class="st">'[2020-11-20|04:44:26]'</span></span>
 <span id="cb12-4"><a href="#cb12-4"></a><span class="fu">locale</span><span class="kw">:</span><span class="at"> en</span></span>
 <span id="cb12-5"><a href="#cb12-5"></a><span class="fu">steps</span><span class="kw">:</span></span>
 <span id="cb12-6"><a href="#cb12-6"></a><span class="kw">-</span><span class="at"> </span><span class="fu">col_is_numeric</span><span class="kw">:</span></span>
@@ -916,19 +917,19 @@ html {
 <div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="no">vars</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"AMT_A_2019"</span>, <span class="st">"IND_C_2020"</span>)
 <span class="no">desc_df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/describe_names.html">describe_names</a></span>(<span class="no">vars</span>, <span class="no">convo</span>, <span class="kw">desc_str</span> <span class="kw">=</span> <span class="st">"{level1} of {level2} in given year"</span>)
 <span class="kw pkg">DT</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html">datatable</a></span>(<span class="no">desc_df</span>)</pre></body></html></div>
-<div id="htmlwidget-99c5a7e43d5181e45ec2" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-99c5a7e43d5181e45ec2">{"x":{"filter":"none","data":[["1","2"],["AMT_A_2019","IND_C_2020"],["AMT","IND"],["A","C"],["2019","2020"],["Non-negative, summable quantity of Type A in given year","Binary indicator of Type C in given year"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>var_name<\/th>\n      <th>level1<\/th>\n      <th>level2<\/th>\n      <th>level3<\/th>\n      <th>desc<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}]}},"evals":[],"jsHooks":[]}</script><p>Visualize data as controlled vocabulary components:</p>
+<div id="htmlwidget-63ea83647a0ba89f633a" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-63ea83647a0ba89f633a">{"x":{"filter":"none","data":[["1","2"],["AMT_A_2019","IND_C_2020"],["AMT","IND"],["A","C"],["2019","2020"],["Non-negative, summable quantity of Type A in given year","Binary indicator of Type C in given year"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>var_name<\/th>\n      <th>level1<\/th>\n      <th>level2<\/th>\n      <th>level3<\/th>\n      <th>desc<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"order":[],"autoWidth":false,"orderClasses":false,"columnDefs":[{"orderable":false,"targets":0}]}},"evals":[],"jsHooks":[]}</script><p>Visualize data as controlled vocabulary components:</p>
 <div class="sourceCode" id="cb14"><html><body><pre class="r"><span class="no">vbls</span> <span class="kw">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"AMT_A_2019"</span>, <span class="st">"AMT_B"</span>, <span class="st">"AMT_C"</span>, <span class="st">"IND_A"</span>, <span class="st">"IND_B_2020"</span>)
 <span class="no">vbls_df</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/parse_df.html">parse_df</a></span>(<span class="no">vbls</span>)
 <span class="fu"><a href="../reference/viz_names.html">viz_names</a></span>(<span class="no">vbls_df</span>)</pre></body></html></div>
-<div id="htmlwidget-4eb8da136d294eb20ba9" style="width:700px;height:432.632880098888px;" class="collapsibleTree html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4eb8da136d294eb20ba9">{"x":{"data":{"name":"convo_df","SizeOfNode":14.05,"children":[{"name":"AMT","SizeOfNode":10.88,"children":[{"name":"A","SizeOfNode":6.28,"children":[{"name":"2019","SizeOfNode":6.28}]},{"name":"B","SizeOfNode":6.28},{"name":"C","SizeOfNode":6.28}]},{"name":"IND","SizeOfNode":8.89,"children":[{"name":"A","SizeOfNode":6.28},{"name":"B","SizeOfNode":6.28,"children":[{"name":"2020","SizeOfNode":6.28}]}]}]},"options":{"hierarchy":["level1","level2","level3"],"input":null,"attribute":"leafCount","linkLength":null,"fontSize":10,"tooltip":false,"collapsed":true,"zoomable":true,"margin":{"top":20,"bottom":20,"left":69.05,"right":45},"fill":"lightsteelblue"}},"evals":[],"jsHooks":[]}</script><p>Describe an overall <code>convo</code> specification:</p>
+<div id="htmlwidget-c3d27f7ca39fd22d05b1" style="width:700px;height:432.632880098888px;" class="collapsibleTree html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c3d27f7ca39fd22d05b1">{"x":{"data":{"name":"convo_df","SizeOfNode":14.05,"children":[{"name":"AMT","SizeOfNode":10.88,"children":[{"name":"A","SizeOfNode":6.28,"children":[{"name":"2019","SizeOfNode":6.28}]},{"name":"B","SizeOfNode":6.28},{"name":"C","SizeOfNode":6.28}]},{"name":"IND","SizeOfNode":8.89,"children":[{"name":"A","SizeOfNode":6.28},{"name":"B","SizeOfNode":6.28,"children":[{"name":"2020","SizeOfNode":6.28}]}]}]},"options":{"hierarchy":["level1","level2","level3"],"input":null,"attribute":"leafCount","linkLength":null,"fontSize":10,"tooltip":false,"collapsed":true,"zoomable":true,"margin":{"top":20,"bottom":20,"left":69.05,"right":45},"fill":"lightsteelblue"}},"evals":[],"jsHooks":[]}</script><p>Describe an overall <code>convo</code> specification:</p>
 <div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="kw pkg">DT</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html">datatable</a></span>(<span class="fu"><a href="../reference/describe_convo.html">describe_convo</a></span>(<span class="no">convo</span>))</pre></body></html></div>
-<div id="htmlwidget-d268ff27d5b15794ab94" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d268ff27d5b15794ab94">{"x":{"filter":"none","data":[["level11","level12","level13","level14","level15","level16","level17","level21","level22","level23","level3"],[1,1,1,1,1,1,1,2,2,2,3],["ID","IND","AMT","VAL","CAT","CD","DT","A","C","D","\\d{4}"],["Unique identifier","Binary indicator","Non-negative, summable quantity","Value","Category","System-generated code","Calendar date in YYYY-MM-DD format","Type A","Type C","Type D",null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>level<\/th>\n      <th>stub<\/th>\n      <th>stub_desc<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":1},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p>Optionally include the “contracts” (or validation checks) in the documentation (also powered by <code>pointblank</code>):</p>
+<div id="htmlwidget-cf7babbd35cc7c957f36" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cf7babbd35cc7c957f36">{"x":{"filter":"none","data":[["level11","level12","level13","level14","level15","level16","level17","level21","level22","level23","level3"],[1,1,1,1,1,1,1,2,2,2,3],["ID","IND","AMT","VAL","CAT","CD","DT","A","C","D","\\d{4}"],["Unique identifier","Binary indicator","Non-negative, summable quantity","Value","Category","System-generated code","Calendar date in YYYY-MM-DD format","Type A","Type C","Type D",null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>level<\/th>\n      <th>stub<\/th>\n      <th>stub_desc<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":1},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><p>Optionally include the “contracts” (or validation checks) in the documentation (also powered by <code>pointblank</code>):</p>
 <div class="sourceCode" id="cb16"><html><body><pre class="r"><span class="kw pkg">DT</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html">datatable</a></span>(<span class="fu"><a href="../reference/describe_convo.html">describe_convo</a></span>(<span class="no">convo</span>, <span class="kw">include_valid</span> <span class="kw">=</span> <span class="fl">TRUE</span>))</pre></body></html></div>
-<div id="htmlwidget-33b3e4253447a7de319f" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-33b3e4253447a7de319f">{"x":{"filter":"none","data":[["3","5","6","8","9","10","11","2","4","7","1"],["AMT","CAT","CD","DT","ID","IND","VAL","A","C","D","\\d{4}"],[1,1,1,1,1,1,1,2,2,2,3],["Non-negative, summable quantity","Category","System-generated code","Calendar date in YYYY-MM-DD format","Unique identifier","Binary indicator","Value","Type A","Type C","Type D",null],["Expect that column is of type: numeric. ;Expect that values should be &gt;= `0`. ","Expect that column is of type: character. ","Expect that column is of type: character. ","Expect that column is of type: Date. ","Expect that all values should not be NULL. ;Expect that column is of type: numeric. ;Expect that values should be between `1000` and `99999`. ","Expect that column is of type: numeric. ;Expect that values should be in the set of `0`, `1`. ","Expect that column is of type: numeric. ",null,null,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>stub<\/th>\n      <th>level<\/th>\n      <th>stub_desc<\/th>\n      <th>checks<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3ee7dab704ba8f1a7d21" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3ee7dab704ba8f1a7d21">{"x":{"filter":"none","data":[["3","5","6","8","9","10","11","2","4","7","1"],["AMT","CAT","CD","DT","ID","IND","VAL","A","C","D","\\d{4}"],[1,1,1,1,1,1,1,2,2,2,3],["Non-negative, summable quantity","Category","System-generated code","Calendar date in YYYY-MM-DD format","Unique identifier","Binary indicator","Value","Type A","Type C","Type D",null],["Expect that column is of type: numeric. ;Expect that values should be &gt;= `0`. ","Expect that column is of type: character. ","Expect that column is of type: character. ","Expect that column is of type: Date. ","Expect that all values should not be NULL. ;Expect that column is of type: numeric. ;Expect that values should be between `1000` and `99999`. ","Expect that column is of type: numeric. ;Expect that values should be in the set of `0`, `1`. ","Expect that column is of type: numeric. ",null,null,null,null]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>stub<\/th>\n      <th>level<\/th>\n      <th>stub_desc<\/th>\n      <th>checks<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="beyond-column-names" class="section level2">
 <h2 class="hasAnchor">
@@ -942,14 +943,14 @@ html {
                <span class="st">"src/script-b.sql"</span>)
 <span class="no">filenames_clean</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span>(<span class="st">"\\.[A-Za-z]+$"</span>, <span class="st">""</span>, <span class="fu"><a href="https://rdrr.io/r/base/basename.html">basename</a></span>(<span class="no">filenames</span>))
 <span class="fu"><a href="../reference/parse_stubs.html">parse_stubs</a></span>(<span class="no">filenames_clean</span>, <span class="kw">sep</span> <span class="kw">=</span> <span class="st">"-"</span>)</pre></body></html></div>
-<pre><code>#&gt; [[1]]
-#&gt; [1] "validation" "analysis"   "report"     "script"    
-#&gt; 
-#&gt; [[2]]
-#&gt; [1] "a" "b"
-#&gt; 
-#&gt; attr(,"class")
-#&gt; [1] "convomin" "list"</code></pre>
+<pre><code>#&gt; Level 1
+#&gt; - validation
+#&gt; - analysis
+#&gt; - report
+#&gt; - script
+#&gt; Level 2
+#&gt; - a
+#&gt; - b</code></pre>
 </div>
   </div>
 
