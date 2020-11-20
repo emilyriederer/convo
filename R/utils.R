@@ -23,6 +23,6 @@ get_desc <- function(convo) {
 get_valid <- function(convo) {
 
   lapply(convo,
-         FUN = function(x) vapply(x, function(y) fmt_safe_chr(y[["valid"]]), character(1)))
+         FUN = function(x) lapply(x, function(y) y[["valid"]]))
 
 }
