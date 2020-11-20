@@ -3,5 +3,8 @@ pkgdown: 1.5.1
 pkgdown_sha: ~
 articles:
   quickstart-guide: quickstart-guide.html
-last_built: 2020-11-20T11:22Z
+last_built: 2020-11-20T13:46Z
+urls:
+  reference: https://emilyriederer.github.io/convo/reference
+  article: https://emilyriederer.github.io/convo/articles
 

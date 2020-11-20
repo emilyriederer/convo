@@ -1,0 +1,17 @@
+url: https://emilyriederer.github.io/convo
+
+authors:
+  Emily Riederer:
+    href: https://emilyriederer.netlify.com/
+
+home:
+  title: An R package for controlled vocabulary definition and application
+  description: Define a controlled vocabulary and use it to check for adherence in data names and values.
+
+template:
+  twitter:
+      creator: "@emilyriederer"
+      site: "@emilyriederer"
+      card: summary_large_image
+  params:
+    bootswatch: simplex
