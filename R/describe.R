@@ -30,6 +30,7 @@ describe_names <- function(vars, convo, desc_str = "{level1} of entity {level2}"
 #'
 #' @param convo \code{convo} object containing controlled vocabulary
 #' @param include_valid Boolean whether to include human-readable documentation of related data validations
+#' @param for_DT Boolean whether intended table will be displayed with \code{DT} package. Used for applying breaklines
 #'
 #' @return \code{data.frame} schema dictionary
 #' @export
@@ -38,7 +39,7 @@ describe_names <- function(vars, convo, desc_str = "{level1} of entity {level2}"
 #' filepath <- system.file("", "ex-convo.yml", package = "convo")
 #' convo <- read_convo(filepath)
 #' describe_convo(convo)
-describe_convo <- function(convo, include_valid = FALSE) {
+describe_convo <- function(convo, include_valid = FALSE, for_DT = TRUE) {
 
   descs <- get_desc(convo)
   stubs <- get_stubs(convo)
@@ -68,7 +69,8 @@ describe_convo <- function(convo, include_valid = FALSE) {
     validation <- validation_set[c('column', 'brief')]
     validation$column <- as.character(validation$column)
     validation$brief <- gsub("(in `[A-Za-z]+` )|(`[A-Za-z]+` )", "", validation$brief)
-    valid_df <- aggregate(brief ~ column, data = validation, FUN = function(x) paste(x, collapse = ";"))
+    sep <- if (for_DT) "<br/>" else ";"
+    valid_df <- aggregate(brief ~ column, data = validation, FUN = function(x) paste(x, collapse = sep))
     names(valid_df) <- c("stub", "checks")
     cmbnd_df <- merge(x = desc_df, y = valid_df, by = "stub", all.x = TRUE)
     desc_df <- cmbnd_df[order(cmbnd_df$level),]

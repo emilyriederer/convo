@@ -4,12 +4,14 @@
 \alias{describe_convo}
 \title{Create schema dictionary}
 \usage{
-describe_convo(convo, include_valid = FALSE)
+describe_convo(convo, include_valid = FALSE, for_DT = TRUE)
 }
 \arguments{
 \item{convo}{\code{convo} object containing controlled vocabulary}
 
 \item{include_valid}{Boolean whether to include human-readable documentation of related data validations}
+
+\item{for_DT}{Boolean whether intended table will be displayed with \code{DT} package. Used for applying breaklines}
 }
 \value{
 \code{data.frame} schema dictionary
