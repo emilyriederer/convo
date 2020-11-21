@@ -74,7 +74,7 @@ After conducting set operations on a `convo` as shown above, a new `convo` YAML 
 write_convo(convo_union, filename = "new-convo.yml", path = tempdir())
 ```
 
-```{yaml, code= file.path(tempdir(), "ex-convo.yml"), eval = FALSE}
+```{yaml, code= file.path(tempdir(), "new-convo.yml"), eval = FALSE}
 ```
 
 ## Validate 
