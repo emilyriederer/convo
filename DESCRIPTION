@@ -26,7 +26,6 @@ Suggests:
     DT
 VignetteBuilder: knitr
 Imports: 
-    magrittr,
     glue,
     stats,
     utils
