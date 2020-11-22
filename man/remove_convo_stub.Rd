@@ -11,11 +11,9 @@ remove_convo_stub(convo, level, stub)
 
 \item{level}{Level at which to add new entry}
 
-\item{stub}{Character. New stub to add to controlled vocabularly at given level}
+\item{stub}{Character. Stub to remove from controlled vocabulary at given level}
 }
 \value{
-
-
 \code{convo} object
 }
 \description{

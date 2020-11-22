@@ -7,9 +7,7 @@
 #' @export
 #'
 #' @examples
-#' c <- create_convo(list(letters[1:3], letters[4:6]))
-#' print(c)
-#' convo <- parse_stubs(l)
+#' convo <- create_convo(list(letters[1:3], letters[4:6]))
 #' print(convo)
 print.convo <- function(x, ...) {
 
@@ -29,14 +27,14 @@ print.convo <- function(x, ...) {
 #' \code{convomin} objects are returned by \code{compare_convo()} and \code{evaluate_convo()}
 #'
 #' @param x A \code{convomin} object (a multi-level list of stub names)
-#' @param ...
+#' @param ... Additional arguments passed to function. Currently unused.
 #'
 #' @return No return - pretty prints convomin object
 #' @export
 #'
 #' @examples
 #' x <- c("a_b")
-#' convo <- parse_stubs(l)
+#' convo <- parse_stubs(x)
 #' print(convo)
 print.convomin <- function(x, ...) {
 

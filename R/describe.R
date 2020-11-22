@@ -35,6 +35,8 @@ describe_names <- function(vars, convo, desc_str = "{level1} of entity {level2}"
 #' @return \code{data.frame} schema dictionary
 #' @export
 #'
+#' @importFrom stats aggregate
+#'
 #' @examples
 #' filepath <- system.file("", "ex-convo.yml", package = "convo")
 #' convo <- read_convo(filepath)
@@ -70,7 +72,7 @@ describe_convo <- function(convo, include_valid = FALSE, for_DT = TRUE) {
     validation$column <- as.character(validation$column)
     validation$brief <- gsub("(in `[A-Za-z]+` )|(`[A-Za-z]+` )", "", validation$brief)
     sep <- if (for_DT) "<br/>" else ";"
-    valid_df <- aggregate(brief ~ column, data = validation, FUN = function(x) paste(x, collapse = sep))
+    valid_df <- stats::aggregate(brief ~ column, data = validation, FUN = function(x) paste(x, collapse = sep))
     names(valid_df) <- c("stub", "checks")
     cmbnd_df <- merge(x = desc_df, y = valid_df, by = "stub", all.x = TRUE)
     desc_df <- cmbnd_df[order(cmbnd_df$level), c("level", "stub", "stub_desc", "checks")]

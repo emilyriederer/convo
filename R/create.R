@@ -57,10 +57,11 @@ add_convo_stub <- function(convo, level, stub, desc = NA, valid = NA, overwrite 
 #'
 #' @param convo A \code{convo} object
 #' @param level Level at which to add new entry
-#' @param stub Character. New stub to add to controlled vocabularly at given level
+#' @param stub Character. Stub to remove from controlled vocabulary at given level
 #'
-#' @return
 #' @return \code{convo} object
+#'
+#' @export
 #'
 #' @examples
 #' stubs <- list(letters[1:3], letters[4:5], letters[6:7])

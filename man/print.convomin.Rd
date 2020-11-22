@@ -9,7 +9,7 @@
 \arguments{
 \item{x}{A \code{convomin} object (a multi-level list of stub names)}
 
-\item{...}{}
+\item{...}{Additional arguments passed to function. Currently unused.}
 }
 \value{
 No return - pretty prints convomin object
@@ -19,6 +19,6 @@ No return - pretty prints convomin object
 }
 \examples{
 x <- c("a_b")
-convo <- parse_stubs(l)
+convo <- parse_stubs(x)
 print(convo)
 }

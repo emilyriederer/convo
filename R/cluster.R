@@ -27,6 +27,9 @@
 #' @return A list of \code{hclust} objects by level of the vocabulary
 #' @export
 #'
+#' @importFrom utils adist
+#' @importFrom stats as.dist
+#'
 #' @examples
 #' convo <- list(c("IND", "IS", "AMT", "AMOUNT", "CAT", "CD"),
 #'               c("ACCOUNT", "ACCT", "ACCNT", "PROSPECT", "CUSTOMER"))
@@ -48,11 +51,11 @@ cluster_convo <- function(convo,
 
   # compute levenshtein distance, favoring ins/del over sub ----
   dists <- lapply(stubs,
-                  FUN = function(x) adist(x, costs = adist_costs))
+                  FUN = function(x) utils::adist(x, costs = adist_costs))
   dists <- mapply(FUN = function(x,y) {rownames(x) <- y; return(x)},
                   x = dists, y = stubs, SIMPLIFY = FALSE)
   clusts <- lapply(dists,
-                   FUN = function(x) tryCatch(stats::hclust(as.dist(x), method = hclust_method),
+                   FUN = function(x) tryCatch(stats::hclust(stats::as.dist(x), method = hclust_method),
                                               error = function(e) NA))
 
   # return list of clusters by level ----
