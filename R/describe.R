@@ -7,13 +7,19 @@
 #' @return \code{data.frame} data dictionary
 #' @export
 #'
-#' @import glue
 #' @examples
 #' vars <- c("AMT_A_2019", "IND_B_2020")
 #' filepath <- system.file("", "ex-convo.yml", package = "convo")
 #' convo <- read_convo(filepath)
 #' describe_names(vars, convo, desc_str = "{level1} of {level2} in given year")
 describe_names <- function(vars, convo, desc_str = "{level1} of entity {level2}") {
+
+  if(!requireNamespace("glue", quietly = TRUE)) {
+    stop(
+      "The package 'glue' is required to use function convo::describe_names()",
+      "Please install from CRAN and retry."
+    )
+  }
 
   vars_df <- parse_df(vars)
   desc <- unlist(setNames(get_desc(convo), NULL))
