@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • convo</title>
+<title>Find index of all stubs in a convo or set of stubs — pivot_convo • convo</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Find index of all stubs in a convo or set of stubs — pivot_convo" />
+<meta property="og:description" content="Pivot convo structure to have one list element per stub each containing a
+numeric vector with the level(s) at which that stub appears (as opposed to one
+list element per level with entries for each stub)." />
 <meta property="og:image" content="https://emilyriederer.github.io/convo/logo.png" />
 
 
@@ -76,7 +79,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -130,144 +133,65 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Find index of all stubs in a convo or set of stubs</h1>
+    
+    <div class="hidden name"><code>pivot_convo.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>Pivot convo structure to have one list element per stub each containing a
+numeric vector with the level(s) at which that stub appears (as opposed to one
+list element per level with entries for each stub).</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>pivot_convo</span>(<span class='no'>convo</span>, <span class='kw'>repeats_only</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="add_convo_stub.html">add_convo_stub()</a></code> </p>
-        </td>
-        <td><p>Add new stub to convo object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="cluster_convo.html">cluster_convo()</a></code> </p>
-        </td>
-        <td><p>Cluster stubs by level to find duplicates</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="compare_convo.html">compare_convo()</a></code> </p>
-        </td>
-        <td><p>Compare vocabularies with set operations</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_convo.html">create_convo()</a></code> </p>
-        </td>
-        <td><p>Create convo object from list of stubs</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="create_pb_agent.html">create_pb_agent()</a></code> </p>
-        </td>
-        <td><p>Generate agent object for validation of controlled vocabulary conditions for a data set</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="describe_convo.html">describe_convo()</a></code> </p>
-        </td>
-        <td><p>Create schema dictionary</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="describe_names.html">describe_names()</a></code> </p>
-        </td>
-        <td><p>Create dictionary defining controlled vocabulary realizations</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="evaluate_convo.html">evaluate_convo()</a></code> </p>
-        </td>
-        <td><p>Evaluate a set of names against a controlled vocabulary</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_df.html">parse_df()</a></code> </p>
-        </td>
-        <td><p>Parse vocabulary from a set of names and convert to data.frame</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_stubs.html">parse_stubs()</a></code> </p>
-        </td>
-        <td><p>Parse vocabulary from a set of names</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pivot_convo.html">pivot_convo()</a></code> </p>
-        </td>
-        <td><p>Find index of all stubs in a convo or set of stubs</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="print.convo.html">print(<i>&lt;convo&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Pretty print a convo object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="print.convomin.html">print(<i>&lt;convomin&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Pretty print a convomin object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="read_convo.html">read_convo()</a></code> </p>
-        </td>
-        <td><p>Read controlled vocabulary from YAML</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="remove_convo_stub.html">remove_convo_stub()</a></code> </p>
-        </td>
-        <td><p>Remove stub from convo</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="viz_names.html">viz_names()</a></code> </p>
-        </td>
-        <td><p>Visualize name set as tree</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="write_convo.html">write_convo()</a></code> </p>
-        </td>
-        <td><p>Write convo config file template from stubs list</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="write_pb.html">write_pb()</a></code> </p>
-        </td>
-        <td><p>Generate YAML for pointblank validation agent from convo</p></td>
-      </tr>
-    </tbody>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>convo</th>
+      <td><p>A <code>convo</code> object or list of stubs by level</p></td>
+    </tr>
+    <tr>
+      <th>repeats_only</th>
+      <td><p>Boolean. Whether to return only stubs which exist in multiple levels</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Named list with one element per stubs (of any level) containing a
+character vector of all levels at which that stub appears</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The main use case for this function is validating that stubs do not appear at
+multiple levels. For this reason, the argument <code>repeats_only</code> defaults to <code>TRUE</code>
+and only stubs existing in multiple levels are returned.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>convo</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>3</span>], <span class='no'>letters</span>[<span class='fl'>2</span>:<span class='fl'>4</span>], <span class='no'>letters</span>[<span class='fl'>3</span>:<span class='fl'>6</span>])
+<span class='fu'>pivot_convo</span>(<span class='no'>convo</span>)</div><div class='output co'>#&gt; named list()</div><div class='input'><span class='fu'>pivot_convo</span>(<span class='no'>convo</span>, <span class='kw'>repeats_only</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; $a
+#&gt; [1] 1
+#&gt; 
+#&gt; $b
+#&gt; [1] 1
+#&gt; 
+#&gt; $c
+#&gt; [1] 1
+#&gt; 
+#&gt; $d
+#&gt; [1] 2
+#&gt; 
+#&gt; $e
+#&gt; [1] 2
+#&gt; 
+#&gt; $f
+#&gt; [1] 2
+#&gt; </div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
