@@ -33,6 +33,24 @@ convo <- read_convo(filepath)
 print(convo)
 ```
 
+## Explore a Convo
+
+Before using our `convo` to validate a set of names, we cam quickly plot it's own validity by clustering the stubs and searching for suboptimality using the exploratory `cluster_convo()` function. To illustrate, let's consider a slightly more problematic controlled vocabulary that what we read in above.
+
+Here, the level 1 stubs are mostly reasonable (but "IND" and "IS" might both be redundant and represent binary variables), but the level 2 stubs are highly redundant with "ACCOUNT", "ACCT", and "ACCNT" likely all representing the same concept.
+
+```{r}
+convo_draft <- list(c("IND", "IS", "AMT", "AMOUNT", "CAT", "CD"),
+              c("ACCOUNT", "ACCT", "ACCNT", "PROSPECT", "CUSTOMER"))
+clusts <- cluster_convo(convo_draft)
+plot(clusts[[1]])
+plot(clusts[[2]])
+```
+
+In the plots above, we can see that clustering does not help surface the problematic level 1 duplication, but it might help us notice the level 2 redundancies. Thus, this is a manual, exploratory tool but not guaranteed to highlight all problems.
+
+From here forward, we return to using the original `convo` read in above for demonstration.
+
 ## Evaluate & Compare 
 
 Evaluate a set of names (e.g. variable or file names) against the `convo` object to find violations:
