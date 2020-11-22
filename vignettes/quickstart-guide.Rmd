@@ -33,11 +33,19 @@ convo <- read_convo(filepath)
 print(convo)
 ```
 
-## Explore a Convo
+## Check
 
-Before using our `convo` to validate a set of names, we cam quickly plot it's own validity by clustering the stubs and searching for suboptimality using the exploratory `cluster_convo()` function. To illustrate, let's consider a slightly more problematic controlled vocabulary that what we read in above.
+Before using our `convo` to evaluate names, we may want to check that it itself follows good practices. There are a few exploratory tools to help us identify suboptimal aspects. To illustrate, let's consider a slightly more problematic controlled vocabulary that what we read in above. 
 
-Here, the level 1 stubs are mostly reasonable (but "IND" and "IS" might both be redundant and represent binary variables), but the level 2 stubs are highly redundant with "ACCOUNT", "ACCT", and "ACCNT" likely all representing the same concept.
+First, the `pivot_convo()` function can help us determine if any stubs are used in multiple levels, which could potentially cause confusion or misinterpretation. In the example below, we see that the stub "CAT" is used in level 1 to denote a categorical and in level 2 to denote the animal "CAT".
+
+```{r}
+convo_draft <- list(c("IND", "AMT", "CAT"), c("DOG", "CAT"))
+pivot_convo(convo_draft)
+```
+
+
+We can also also cluster stubs and search for possible redundancy with the `cluster_convo()` function. Here, the level 1 stubs are mostly reasonable (but "IND" and "IS" might both be redundant and represent binary variables), but the level 2 stubs are highly redundant with "ACCOUNT", "ACCT", and "ACCNT" likely all representing the same concept.
 
 ```{r}
 convo_draft <- list(c("IND", "IS", "AMT", "AMOUNT", "CAT", "CD"),
