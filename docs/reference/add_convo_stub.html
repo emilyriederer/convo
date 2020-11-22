@@ -47,7 +47,7 @@
 
 
 <meta property="og:title" content="Add new stub to convo object — add_convo_stub" />
-<meta property="og:description" content="This function adds new stubs to a controlled vocabularly or overwrites existing stubs." />
+<meta property="og:description" content="This function adds new stubs to a controlled vocabulary or overwrites existing stubs." />
 <meta property="og:image" content="https://emilyriederer.github.io/convo/logo.png" />
 
 
@@ -139,10 +139,10 @@
     </div>
 
     <div class="ref-description">
-    <p>This function adds new stubs to a controlled vocabularly or overwrites existing stubs.</p>
+    <p>This function adds new stubs to a controlled vocabulary or overwrites existing stubs.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>add_convo_stub</span>(<span class='no'>convo</span>, <span class='no'>level</span>, <span class='no'>stub</span>, <span class='kw'>desc</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>valid</span> <span class='kw'>=</span> <span class='fl'>NA</span>)</pre>
+    <pre class="usage"><span class='fu'>add_convo_stub</span>(<span class='no'>convo</span>, <span class='no'>level</span>, <span class='no'>stub</span>, <span class='kw'>desc</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>valid</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>overwrite</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -157,7 +157,7 @@
     </tr>
     <tr>
       <th>stub</th>
-      <td><p>Character. New stub to add to controlled vocabularly at given level</p></td>
+      <td><p>Character. New stub to add to controlled vocabulary at given level</p></td>
     </tr>
     <tr>
       <th>desc</th>
@@ -166,6 +166,10 @@
     <tr>
       <th>valid</th>
       <td><p>Character vector. Optional <code>pointblank</code> validation checks for stub</p></td>
+    </tr>
+    <tr>
+      <th>overwrite</th>
+      <td><p>Boolean. Whether to allow existing stub to be overwritten</p></td>
     </tr>
     </table>
 

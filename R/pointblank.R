@@ -81,6 +81,11 @@ get_pb_lines <- function(convo) {
 
   stubs <- names(convo[[1]])
   funs  <- lapply(convo[[1]], function(x) x[["valid"]])
+  no_funs <- vapply(funs, is.null, logical(1))
+
+  if (all(no_funs)) {stop("convo object supplied has no validation checks")}
+  stubs <- stubs[!no_funs]
+  funs <- funs[!no_funs]
 
   edit_expect <- function(stub, fun) {
     stub_prep <- paste0("(", "starts_with('", stub, "')")

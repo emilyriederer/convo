@@ -22,13 +22,14 @@ create_convo <- function(l) {
 
 #' Add new stub to convo object
 #'
-#' This function adds new stubs to a controlled vocabularly or overwrites existing stubs.
+#' This function adds new stubs to a controlled vocabulary or overwrites existing stubs.
 #'
 #' @param convo A \code{convo} object
 #' @param level Level at which to add new entry
-#' @param stub Character. New stub to add to controlled vocabularly at given level
+#' @param stub Character. New stub to add to controlled vocabulary at given level
 #' @param desc Character. Optional human-readable description of stub
 #' @param valid Character vector. Optional \code{pointblank} validation checks for stub
+#' @param overwrite Boolean. Whether to allow existing stub to be overwritten
 #'
 #' @return \code{convo} object
 #' @export
@@ -37,7 +38,12 @@ create_convo <- function(l) {
 #' stubs <- list(letters[1:3], letters[4:5], letters[6:7])
 #' convo <- create_convo(stubs)
 #' add_convo_stub(convo, 1, "z")
-add_convo_stub <- function(convo, level, stub, desc = NA, valid = NA) {
+add_convo_stub <- function(convo, level, stub, desc = NA, valid = NA, overwrite = FALSE) {
+
+  if (!overwrite & is.element(stub, names(convo[[level]])) ) {
+    stop("Provided stub already exists at level provided.",
+         "If you wish to overwrite, please set the overwrite argument to FALSE.")
+  }
 
   entry <- list()
   if (!is.na(desc)) entry[["desc"]] <- desc

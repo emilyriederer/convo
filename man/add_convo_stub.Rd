@@ -4,24 +4,26 @@
 \alias{add_convo_stub}
 \title{Add new stub to convo object}
 \usage{
-add_convo_stub(convo, level, stub, desc = NA, valid = NA)
+add_convo_stub(convo, level, stub, desc = NA, valid = NA, overwrite = FALSE)
 }
 \arguments{
 \item{convo}{A \code{convo} object}
 
 \item{level}{Level at which to add new entry}
 
-\item{stub}{Character. New stub to add to controlled vocabularly at given level}
+\item{stub}{Character. New stub to add to controlled vocabulary at given level}
 
 \item{desc}{Character. Optional human-readable description of stub}
 
 \item{valid}{Character vector. Optional \code{pointblank} validation checks for stub}
+
+\item{overwrite}{Boolean. Whether to allow existing stub to be overwritten}
 }
 \value{
 \code{convo} object
 }
 \description{
-This function adds new stubs to a controlled vocabularly or overwrites existing stubs.
+This function adds new stubs to a controlled vocabulary or overwrites existing stubs.
 }
 \examples{
 stubs <- list(letters[1:3], letters[4:5], letters[6:7])

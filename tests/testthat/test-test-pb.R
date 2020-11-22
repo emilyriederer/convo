@@ -34,3 +34,13 @@ test_that(
                  c("col_is_date", rep(c("col_is_numeric", "col_vals_in_set"), each = 2)))
   }
 )
+
+test_that(
+  "Fail gracefully when no validation checks available for pointblank", {
+    convo2 <- create_convo(list(letters[1:3], letters[4:6]))
+    expect_error(create_pb_agent(convo2, data.frame(a_d = 1)),
+                 "convo object supplied has no validation checks")
+    expect_error(write_pb(convo2, "a_d", filename = "x.yml", path = tmp),
+                 "convo object supplied has no validation checks")
+  }
+)
