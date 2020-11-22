@@ -28,4 +28,5 @@ VignetteBuilder: knitr
 Imports: 
     glue,
     stats,
-    utils
+    utils,
+    magrittr
