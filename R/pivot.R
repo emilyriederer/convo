@@ -27,7 +27,7 @@ pivot_convo <- function(convo, repeats_only = TRUE) {
     } else {
       convo
     }
-  vec_stubs <- unique(unlist(stubs))
+  vec_stubs <- unlist(stubs)
   vec_level <-
     unlist(lapply(
       1:length(stubs),
@@ -36,7 +36,7 @@ pivot_convo <- function(convo, repeats_only = TRUE) {
     ))
   stub_levels <-
     sapply(
-      vec_stubs,
+      unique(vec_stubs),
       FUN = function(x)
         vec_level[which(vec_stubs == x)],
       USE.NAMES = TRUE,
