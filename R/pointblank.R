@@ -1,8 +1,8 @@
 #' Generate YAML for pointblank validation agent from convo
 #'
 #' @param convo \code{convo} object read from YAML
-#' @param level Numeric. Level of controlled vocabulary containing validation checks
 #' @param col_names Character vector of column names
+#' @param level Numeric. Level of controlled vocabulary containing validation checks
 #' @param filename Name of YAML file to create
 #' @param path Optional path to directory in which YAML file should be created
 #'

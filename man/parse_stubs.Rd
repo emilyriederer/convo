@@ -6,6 +6,11 @@
 \usage{
 parse_stubs(names, sep = "_")
 }
+\arguments{
+\item{names}{Names created by vocabulary as character vector}
+
+\item{sep}{Separator between different levels of name}
+}
 \value{
 List of class \code{convomin} to represent controlled vocabulary
 }

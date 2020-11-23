@@ -15,7 +15,9 @@ parse_decomp <- function(names, sep) {
 
 #' Parse vocabulary from a set of names
 #'
-#' @inheritParams parse_decomp
+#' @param names Names created by vocabulary as character vector
+#' @param sep Separator between different levels of name
+#'
 #' @return List of class `convomin` to represent controlled vocabulary
 #' @export
 #'
@@ -43,7 +45,7 @@ parse_stubs <- function(names, sep = "_") {
 
 #' Parse vocabulary from a set of names and convert to data.frame
 #'
-#' @inheritParams parse_decomp
+#' @inheritParams parse_stubs
 #' @return A data.frame with one row per name and one column per vocabulary level
 #' @export
 #'
