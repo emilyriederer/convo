@@ -68,3 +68,11 @@ test_that(
     expect_equal(ncol(res), ncol(perms_df) + 1)
     expect_equal(sum(is.na(res)), 0)
   })
+
+test_that(
+  "parse_decomp can handle multiple splitters combined with regex", {
+    res <- convo:::parse_decomp(c("a/x-y", "a/w-z"), sep = "(/|-)")
+    expect_setequal(res[[1]], c("a", "x", "y"))
+    expect_setequal(res[[2]], c("a", "w", "z"))
+  }
+)

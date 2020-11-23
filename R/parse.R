@@ -4,6 +4,7 @@
 #' @param sep Separator between different levels of name
 #'
 #' @keywords internal
+#' @noRd
 parse_decomp <- function(names, sep) {
 
   if (sep == ".") {sep <- "\\."}
