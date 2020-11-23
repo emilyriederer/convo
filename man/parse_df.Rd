@@ -6,11 +6,6 @@
 \usage{
 parse_df(names, sep = "_")
 }
-\arguments{
-\item{names}{Names created by vocabulary as character vector}
-
-\item{sep}{Separator between different levels of name}
-}
 \value{
 A data.frame with one row per name and one column per vocabulary level
 }

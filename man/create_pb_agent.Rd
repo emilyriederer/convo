@@ -4,12 +4,14 @@
 \alias{create_pb_agent}
 \title{Generate agent object for validation of controlled vocabulary conditions for a data set}
 \usage{
-create_pb_agent(convo, tbl)
+create_pb_agent(convo, tbl, level = 1)
 }
 \arguments{
 \item{convo}{\code{convo} object read from YAML}
 
 \item{tbl}{The input table passed to \code{pointblank::create_agent()}}
+
+\item{level}{Numeric. Level of controlled vocabulary containing validation checks}
 }
 \value{
 \code{pointblank} agent for validation pipeline

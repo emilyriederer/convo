@@ -1,6 +1,7 @@
 #' Generate YAML for pointblank validation agent from convo
 #'
 #' @param convo \code{convo} object read from YAML
+#' @param level Numeric. Level of controlled vocabulary containing validation checks
 #' @param col_names Character vector of column names
 #' @param filename Name of YAML file to create
 #' @param path Optional path to directory in which YAML file should be created
@@ -17,7 +18,7 @@
 #' convo <- read_convo(filepath)
 #' write_pb(convo, c("IND_A", "AMT_B"), filename = "convo-validation.yml", path = ".")
 #' }
-write_pb <- function(convo, col_names, filename = "convo-validation.yml", path = ".") {
+write_pb <- function(convo, col_names, level = 1, filename = "convo-validation.yml", path = ".") {
 
   if(!requireNamespace("pointblank", quietly = TRUE)) {
     stop(
@@ -26,7 +27,7 @@ write_pb <- function(convo, col_names, filename = "convo-validation.yml", path =
     )
   }
 
-  stubs_funs_step <- get_pb_lines(convo)
+  stubs_funs_step <- get_pb_lines(convo, level)
 
   df_code <-
     sprintf("setNames(as.data.frame(matrix(1, ncol = %d)), c( %s))",
@@ -58,7 +59,7 @@ write_pb <- function(convo, col_names, filename = "convo-validation.yml", path =
 #' filepath <- system.file("", "ex-convo.yml", package = "convo")
 #' convo <- read_convo(filepath)
 #' agent <- create_pb_agent(convo, data.frame(IND_A = 1, IND_B = 5, DT_B = as.Date("2020-01-01")))
-create_pb_agent <- function(convo, tbl) {
+create_pb_agent <- function(convo, tbl, level = 1) {
 
   if(!requireNamespace("pointblank", quietly = TRUE)) {
     stop(
@@ -67,7 +68,7 @@ create_pb_agent <- function(convo, tbl) {
     )
   }
 
-  stubs_funs_step <- get_pb_lines(convo)
+  stubs_funs_step <- get_pb_lines(convo, level)
   code_lines <- c(paste0("create_agent(tbl)"), stubs_funs_step)
   code_lines <- paste0("pointblank::", code_lines)
   code <- paste(code_lines, collapse = " %>% ")
@@ -77,13 +78,13 @@ create_pb_agent <- function(convo, tbl) {
 
 #' @noRd
 #' @keywords internal
-get_pb_lines <- function(convo) {
+get_pb_lines <- function(convo, level) {
 
-  stubs <- names(convo[[1]])
-  funs  <- lapply(convo[[1]], function(x) x[["valid"]])
+  stubs <- names(convo[[level]])
+  funs  <- lapply(convo[[level]], function(x) x[["valid"]])
   no_funs <- vapply(funs, is.null, logical(1))
 
-  if (all(no_funs)) {stop("convo object supplied has no validation checks")}
+  if (all(no_funs)) {stop("convo object supplied has no validation checks at level provided")}
   stubs <- stubs[!no_funs]
   funs <- funs[!no_funs]
 

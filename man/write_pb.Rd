@@ -4,12 +4,20 @@
 \alias{write_pb}
 \title{Generate YAML for pointblank validation agent from convo}
 \usage{
-write_pb(convo, col_names, filename = "convo-validation.yml", path = ".")
+write_pb(
+  convo,
+  col_names,
+  level = 1,
+  filename = "convo-validation.yml",
+  path = "."
+)
 }
 \arguments{
 \item{convo}{\code{convo} object read from YAML}
 
 \item{col_names}{Character vector of column names}
+
+\item{level}{Numeric. Level of controlled vocabulary containing validation checks}
 
 \item{filename}{Name of YAML file to create}
 
