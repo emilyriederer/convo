@@ -4,9 +4,9 @@
 #' @param sep Separator between different levels of name
 #'
 #' @keywords internal
-parse_decomp <- function(names, sep, dir = c("beg", "end")) {
+parse_decomp <- function(names, sep) {
 
-  match.arg(dir)
+  if (sep == ".") {sep <- "\\."}
   names_split <- strsplit(names, split = sep)
   return(names_split)
 

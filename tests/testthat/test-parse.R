@@ -7,39 +7,64 @@ make_vbls <- function(sep) {with(perms_df, paste(l1, l2, l3, sep = sep))}
 
 test_that(
   "parse_stubs creates expected structure for _ seperator", {
-    expect_s3_class(parse_stubs(make_vbls("_")), "convomin")
-    expect_length(parse_stubs(make_vbls("_")), 3)
+    res <- parse_stubs(make_vbls("_"), sep = "_")
+    expect_s3_class(res, "convomin")
+    expect_length(res, 3)
   })
 
 test_that(
   "parse_stubs creates expected structure for - seperator", {
-    expect_s3_class(parse_stubs(make_vbls("-"), sep = "-"), "convomin")
-    expect_length(parse_stubs(make_vbls("-"), sep = "-"), 3)
+    res <- parse_stubs(make_vbls("-"), sep = "-")
+    expect_s3_class(res, "convomin")
+    expect_length(res, 3)
   })
 
 test_that(
-  "parse_stubs creates expected structure for - seperator", {
-    expect_s3_class(parse_stubs(make_vbls("."), sep = "\\."), "convomin")
-    expect_length(parse_stubs(make_vbls("."), sep = "\\."), 3)
+  "parse_stubs creates expected structure for \\. seperator", {
+    res <- parse_stubs(make_vbls("\\."), sep = "\\.")
+    expect_s3_class(res, "convomin")
+    expect_length(res, 3)
+  })
+
+test_that(
+  "parse_stubs creates expected structure for . seperator", {
+    res <- parse_stubs(make_vbls("."), sep = ".")
+    expect_s3_class(res, "convomin")
+    expect_length(res, 3)
   })
 
 test_that(
   "parse_df creates expected structure for _ seperator", {
-    expect_s3_class(parse_df(make_vbls("_")), "data.frame")
-    expect_equal(nrow(parse_df(make_vbls("_"))), nrow(perms_df))
-    expect_equal(ncol(parse_df(make_vbls("_"))), ncol(perms_df) + 1)
+    res <- parse_df(make_vbls("_"), sep = "_")
+    expect_s3_class(res, "data.frame")
+    expect_equal(nrow(res), nrow(perms_df))
+    expect_equal(ncol(res), ncol(perms_df) + 1)
+    expect_equal(sum(is.na(res)), 0)
   })
 
 test_that(
   "parse_df creates expected structure for - seperator", {
-    expect_s3_class(parse_df(make_vbls("-"), sep = "-"), "data.frame")
-    expect_equal(nrow(parse_df(make_vbls("-"), sep = "-")), nrow(perms_df))
-    expect_equal(ncol(parse_df(make_vbls("-"), sep = "-")), ncol(perms_df) + 1)
+    res <- parse_df(make_vbls("-"), sep = "-")
+    expect_s3_class(res, "data.frame")
+    expect_equal(nrow(res), nrow(perms_df))
+    expect_equal(ncol(res), ncol(perms_df) + 1)
+    expect_equal(sum(is.na(res)), 0)
   })
 
 test_that(
-  "parse_df creates expected structure for _ seperator", {
-    expect_s3_class(parse_df(make_vbls("."), sep = "\\."), "data.frame")
-    expect_equal(nrow(parse_df(make_vbls("."), sep = "\\.")), nrow(perms_df))
-    expect_equal(ncol(parse_df(make_vbls("."), sep = "\\.")), ncol(perms_df) + 1)
+  "parse_df creates expected structure for \\. seperator", {
+    res <- parse_df(make_vbls("."), sep = "\\.")
+    expect_s3_class(res, "data.frame")
+    expect_equal(nrow(res), nrow(perms_df))
+    expect_equal(ncol(res), ncol(perms_df) + 1)
+    expect_equal(sum(is.na(res)), 0)
+  })
+
+test_that(
+  "parse_df creates expected structure for . seperator", {
+    res <- parse_df(make_vbls("."), sep = ".")
+    expect_s3_class(res, "data.frame")
+    expect_equal(nrow(res), nrow(perms_df))
+    expect_equal(ncol(res), ncol(perms_df) + 1)
+    expect_equal(sum(is.na(res)), 0)
   })
