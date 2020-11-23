@@ -142,7 +142,13 @@
     <p>Generate YAML for pointblank validation agent from convo</p>
     </div>
 
-    <pre class="usage"><span class='fu'>write_pb</span>(<span class='no'>convo</span>, <span class='no'>col_names</span>, <span class='kw'>filename</span> <span class='kw'>=</span> <span class='st'>"convo-validation.yml"</span>, <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>)</pre>
+    <pre class="usage"><span class='fu'>write_pb</span>(
+  <span class='no'>convo</span>,
+  <span class='no'>col_names</span>,
+  <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>filename</span> <span class='kw'>=</span> <span class='st'>"convo-validation.yml"</span>,
+  <span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"."</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -154,6 +160,10 @@
     <tr>
       <th>col_names</th>
       <td><p>Character vector of column names</p></td>
+    </tr>
+    <tr>
+      <th>level</th>
+      <td><p>Numeric. Level of controlled vocabulary containing validation checks</p></td>
     </tr>
     <tr>
       <th>filename</th>

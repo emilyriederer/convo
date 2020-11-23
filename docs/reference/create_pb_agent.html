@@ -142,7 +142,7 @@
     <p>Generate agent object for validation of controlled vocabulary conditions for a data set</p>
     </div>
 
-    <pre class="usage"><span class='fu'>create_pb_agent</span>(<span class='no'>convo</span>, <span class='no'>tbl</span>)</pre>
+    <pre class="usage"><span class='fu'>create_pb_agent</span>(<span class='no'>convo</span>, <span class='no'>tbl</span>, <span class='kw'>level</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -154,6 +154,10 @@
     <tr>
       <th>tbl</th>
       <td><p>The input table passed to <code><a href='https://rdrr.io/pkg/pointblank/man/create_agent.html'>pointblank::create_agent()</a></code></p></td>
+    </tr>
+    <tr>
+      <th>level</th>
+      <td><p>Numeric. Level of controlled vocabulary containing validation checks</p></td>
     </tr>
     </table>
 

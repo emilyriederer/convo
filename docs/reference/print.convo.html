@@ -163,15 +163,15 @@
     <p>No return - pretty prints convo object</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>c</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='create_convo.html'>create_convo</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>3</span>], <span class='no'>letters</span>[<span class='fl'>4</span>:<span class='fl'>6</span>]))
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>c</span>)</div><div class='output co'>#&gt; Level 1
+    <pre class="examples"><div class='input'><span class='no'>convo</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='create_convo.html'>create_convo</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>3</span>], <span class='no'>letters</span>[<span class='fl'>4</span>:<span class='fl'>6</span>]))
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>convo</span>)</div><div class='output co'>#&gt; Level 1
 #&gt; - a
 #&gt; - b
 #&gt; - c
 #&gt; Level 2
 #&gt; - d
 #&gt; - e
-#&gt; - f</div><div class='input'><span class='no'>convo</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='parse_stubs.html'>parse_stubs</a></span>(<span class='no'>l</span>)</div><div class='output co'>#&gt; <span class='error'>Error in strsplit(names, split = sep): object 'l' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>convo</span>)</div><div class='output co'>#&gt; <span class='error'>Error in print(convo): object 'convo' not found</span></div></pre>
+#&gt; - f</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

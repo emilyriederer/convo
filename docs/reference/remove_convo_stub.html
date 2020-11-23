@@ -157,21 +157,26 @@
     </tr>
     <tr>
       <th>stub</th>
-      <td><p>Character. New stub to add to controlled vocabularly at given level</p></td>
+      <td><p>Character. Stub to remove from controlled vocabulary at given level</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    
-
-
-<p><code>convo</code> object</p>
+    <p><code>convo</code> object</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>stubs</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='no'>letters</span>[<span class='fl'>1</span>:<span class='fl'>3</span>], <span class='no'>letters</span>[<span class='fl'>4</span>:<span class='fl'>5</span>], <span class='no'>letters</span>[<span class='fl'>6</span>:<span class='fl'>7</span>])
 <span class='no'>convo</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='create_convo.html'>create_convo</a></span>(<span class='no'>stubs</span>)
-<span class='fu'>remove_convo_stub</span>(<span class='no'>convo</span>, <span class='fl'>1</span>, <span class='st'>"a"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in remove_convo_stub(convo, 1, "a"): could not find function "remove_convo_stub"</span></div></pre>
+<span class='fu'>remove_convo_stub</span>(<span class='no'>convo</span>, <span class='fl'>1</span>, <span class='st'>"a"</span>)</div><div class='output co'>#&gt; Level 1
+#&gt; - b
+#&gt; - c
+#&gt; Level 2
+#&gt; - d
+#&gt; - e
+#&gt; Level 3
+#&gt; - f
+#&gt; - g</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
