@@ -2,6 +2,7 @@
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![R build status](https://github.com/emilyriederer/convo/workflows/R-CMD-check/badge.svg)](https://github.com/emilyriederer/convo/actions)
 <!-- badges: end -->
 
 The goal of `convo` is to enable the creation of a a controlled vocabularly for naming columns in a relational dataset as described in my blog post [Column Names as Contracts](https://emilyriederer.netlify.app/post/column-name-contracts/). This controlled vocabularly can then be used to check a set of names for adherence, to automate documentation, and to generate data checks via the `pointblank` package.

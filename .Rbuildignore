@@ -4,3 +4,4 @@
 docs
 logo
 pkgdown
+^\.github$
