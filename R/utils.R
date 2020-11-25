@@ -12,17 +12,13 @@ get_stubs <- function(convo) {lapply(convo, FUN = names)}
 #' @noRd
 #' @keywords internal
 get_desc <- function(convo) {
-
   lapply(convo,
          FUN = function(x) vapply(x, function(y) fmt_safe_chr(y[["desc"]]), character(1)))
-
 }
 
 #' @noRd
 #' @keywords internal
 get_valid <- function(convo) {
-
   lapply(convo,
          FUN = function(x) lapply(x, function(y) y[["valid"]]))
-
 }
