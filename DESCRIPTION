@@ -14,6 +14,8 @@ Description: Variable names and file names can be used to encode
     files, document the expectations these names imply, and validate
     realizations of a vocabulary.
 License: MIT + file LICENSE
+URL: https://github.com/emilyriederer/convo
+BugReports: https://github.com/emilyriederer/convo/issues
 Imports: 
     magrittr,
     stats,
