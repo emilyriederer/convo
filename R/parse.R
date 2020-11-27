@@ -17,6 +17,7 @@ parse_decomp <- function(names, sep) {
 #'
 #' @param names Names created by vocabulary as character vector
 #' @param sep Separator between different levels of name
+#' @param sort Whether to sort stubs (within a level) by decreasing order of occurrence
 #'
 #' @return List of class `convomin` to represent controlled vocabulary
 #' @export
@@ -24,7 +25,7 @@ parse_decomp <- function(names, sep) {
 #' @examples
 #' vbl_names <- c("ind_a", "ind_b", "amt_a", "amt_c", "cat_c_pre", "cat_c_post")
 #' parse_stubs(vbl_names, sep = "_")
-parse_stubs <- function(names, sep = "_") {
+parse_stubs <- function(names, sep = "_", sort = FALSE) {
 
   names_split <- parse_decomp(names, sep)
   max_l <- max(vapply(names_split, FUN = length, FUN.VALUE = integer(1)))
@@ -35,7 +36,19 @@ parse_stubs <- function(names, sep = "_") {
                            FUN.VALUE = character(1))}
                   )
   stubs_clean <- lapply(stubs, FUN = function(x) x[!is.na(x)])
-  stubs_distn <- lapply(stubs_clean, FUN = unique)
+  #stubs_distn <- lapply(stubs_clean, FUN = unique)
+  stubs_distn <- lapply(stubs_clean,
+                        FUN = function(z) {
+                          t <- table(z)
+                          v <- names(t)
+                          attr(v, "n") <- as.numeric(t)
+                          return(v)}
+                        )
+
+  if (sort) {
+    stubs_distn <- lapply(stubs_distn,
+                          FUN = function(x) x[order(attr(x, "n"), decreasing = TRUE)])
+  }
 
   class(stubs_distn) <- c("convomin", class(stubs_distn))
 

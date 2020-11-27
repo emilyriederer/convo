@@ -4,12 +4,14 @@
 \alias{parse_stubs}
 \title{Parse vocabulary from a set of names}
 \usage{
-parse_stubs(names, sep = "_")
+parse_stubs(names, sep = "_", sort = FALSE)
 }
 \arguments{
 \item{names}{Names created by vocabulary as character vector}
 
 \item{sep}{Separator between different levels of name}
+
+\item{sort}{Whether to sort stubs (within a level) by decreasing order of occurrence}
 }
 \value{
 List of class \code{convomin} to represent controlled vocabulary

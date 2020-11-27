@@ -5,6 +5,8 @@ perms_df <- expand.grid(l1 = letters[1:3],
                         l3 = letters[7:8])
 make_vbls <- function(sep) {with(perms_df, paste(l1, l2, l3, sep = sep))}
 
+
+# test parse_stubs for various separators ----
 test_that(
   "parse_stubs creates expected structure for _ seperator", {
     res <- parse_stubs(make_vbls("_"), sep = "_")
@@ -33,6 +35,7 @@ test_that(
     expect_length(res, 3)
   })
 
+# test parse_df for various seperators ----
 test_that(
   "parse_df creates expected structure for _ seperator", {
     res <- parse_df(make_vbls("_"), sep = "_")
@@ -69,6 +72,7 @@ test_that(
     expect_equal(sum(is.na(res)), 0)
   })
 
+# test miscellaneous edge cases ----
 test_that(
   "parse_decomp can handle multiple splitters combined with regex", {
     res <- convo:::parse_decomp(c("a/x-y", "a/w-z"), sep = "(/|-)")
@@ -76,3 +80,16 @@ test_that(
     expect_setequal(res[[2]], c("a", "w", "z"))
   }
 )
+
+test_that(
+  "parse_stubs output unchanged when sort = TRUE", {
+    vbls <- c("a_1", "b_1", "b_2", "b_3", "c_4")
+    res_f <- parse_stubs(vbls, sep = "_", sort = FALSE)
+    res_t <- parse_stubs(vbls, sep = "_", sort = TRUE)
+    expect_s3_class(res_t, "convomin")
+    expect_length(res_t, 2)
+    expect_setequal(res_f[[1]], res_t[[1]])
+    expect_setequal(res_f[[2]], res_t[[2]])
+    expect_equal(res_t[[1]], c("b", "a", "c"))
+    expect_equal(res_t[[2]], as.character(1:4))
+  })

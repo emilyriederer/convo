@@ -142,7 +142,7 @@
     <p>Parse vocabulary from a set of names</p>
     </div>
 
-    <pre class="usage"><span class='fu'>parse_stubs</span>(<span class='no'>names</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>"_"</span>)</pre>
+    <pre class="usage"><span class='fu'>parse_stubs</span>(<span class='no'>names</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>"_"</span>, <span class='kw'>sort</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,6 +155,10 @@
       <th>sep</th>
       <td><p>Separator between different levels of name</p></td>
     </tr>
+    <tr>
+      <th>sort</th>
+      <td><p>Whether to sort stubs (within a level) by decreasing order of occurrence</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -164,16 +168,16 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>vbl_names</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ind_a"</span>, <span class='st'>"ind_b"</span>, <span class='st'>"amt_a"</span>, <span class='st'>"amt_c"</span>, <span class='st'>"cat_c_pre"</span>, <span class='st'>"cat_c_post"</span>)
 <span class='fu'>parse_stubs</span>(<span class='no'>vbl_names</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>"_"</span>)</div><div class='output co'>#&gt; Level 1
-#&gt; - ind
 #&gt; - amt
 #&gt; - cat
+#&gt; - ind
 #&gt; Level 2
 #&gt; - a
 #&gt; - b
 #&gt; - c
 #&gt; Level 3
-#&gt; - pre
-#&gt; - post</div></pre>
+#&gt; - post
+#&gt; - pre</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
