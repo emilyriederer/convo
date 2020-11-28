@@ -40,6 +40,8 @@ create_convo <- function(l) {
 #' add_convo_stub(convo, 1, "z")
 add_convo_stub <- function(convo, level, stub, desc = NA, valid = NA, overwrite = FALSE) {
 
+  # validate inputs ----
+  stopifnot(is.numeric(level))
   if (!overwrite & is.element(stub, names(convo[[level]])) ) {
     stop("Provided stub already exists at level provided.",
          "If you wish to overwrite, please set the overwrite argument to FALSE.")
@@ -69,6 +71,11 @@ add_convo_stub <- function(convo, level, stub, desc = NA, valid = NA, overwrite 
 #' remove_convo_stub(convo, 1, "a")
 remove_convo_stub <- function(convo, level, stub) {
 
+  # validate inputs ----
+  stopifnot(is.numeric(level))
+  stopifnot(is.element(stub, names(convo[[level]])))
+
+  # remove element ----
   convo[[level]][[stub]] <- NULL
   return(convo)
 
