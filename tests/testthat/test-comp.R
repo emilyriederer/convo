@@ -1,8 +1,8 @@
 context("comparison function")
 
 # basic usage ----
-convo <- list(c("ind"), letters[1:3], c("pre", "post"))
-vbl_names <- c("ind_a", "ind_d", "amt_c", "cat_c_pre", "cat_c_post")
+convo <- create_convo(list(c("ind"), letters[1:3], c("pre", "post")))
+vbl_names <- c("ind_a", "ind_d", "amt_c", "cat_c_pre", "cat_c_post_q")
 vbl_stubs <- parse_stubs(vbl_names, sep = "_")
 comp_uni <- compare_convo(vbl_stubs, convo, "union")
 comp_int <- compare_convo(vbl_stubs, convo, "intersect")
