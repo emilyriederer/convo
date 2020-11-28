@@ -10,12 +10,7 @@
 #' convo <- read_convo(path)
 read_convo <- function(path) {
 
-  if (!requireNamespace("yaml", quietly = TRUE)) {
-    stop(
-      "The package 'yaml' is required to use function convo::read_vocab()",
-      "Please install from CRAN and retry."
-      )
-  }
+  stop_suggest("yaml", "read_convo()")
   l <- yaml::read_yaml(file = path)
   class(l) <- c("convo", class(l))
   return(l)
