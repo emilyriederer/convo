@@ -14,12 +14,7 @@
 #' describe_names(vars, convo, desc_str = "{level1} of {level2} in given year")
 describe_names <- function(vars, convo, desc_str = "{level1} of entity {level2}") {
 
-  if(!requireNamespace("glue", quietly = TRUE)) {
-    stop(
-      "The package 'glue' is required to use function convo::describe_names()",
-      "Please install from CRAN and retry."
-    )
-  }
+  stop_suggest("glue", "describe_names()")
 
   vars_df <- parse_df(vars)
   desc <- unlist(setNames(get_desc(convo), NULL))
@@ -63,12 +58,7 @@ describe_convo <- function(convo, include_valid = FALSE, for_DT = TRUE) {
 
   if (include_valid) {
 
-    if(!requireNamespace("pointblank", quietly = TRUE)) {
-      stop(
-        "The package 'pointblank' is required to use function convo::write_pb()",
-        "Please install from CRAN and retry."
-      )
-    }
+    stop_suggest("pointblank", "describe_convo() with include_valid = TRUE")
 
     df <- setNames(as.data.frame(matrix(1, ncol = length(convo[[1]]))), names(convo[[1]]))
     agent <- create_pb_agent(convo, df)

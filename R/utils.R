@@ -22,3 +22,16 @@ get_valid <- function(convo) {
   lapply(convo,
          FUN = function(x) lapply(x, function(y) y[["valid"]]))
 }
+
+#' @noRd
+#' @keywords internal
+stop_suggest <- function(pkg, fun) {
+
+  if(!requireNamespace(pkg, quietly = TRUE)) {
+    stop(
+      "The package '", pkg, "' is required to use the convo function ", fun,
+      ". Please install from CRAN and retry."
+    )
+  }
+
+}

@@ -20,12 +20,7 @@
 #' }
 write_pb <- function(convo, col_names, level = 1, filename = "convo-validation.yml", path = ".") {
 
-  if(!requireNamespace("pointblank", quietly = TRUE)) {
-    stop(
-      "The package 'pointblank' is required to use function convo::write_pb()",
-      "Please install from CRAN and retry."
-    )
-  }
+  stop_suggest("pointblank", "write_pb()")
 
   stubs_funs_step <- get_pb_lines(convo, level)
 
@@ -61,12 +56,7 @@ write_pb <- function(convo, col_names, level = 1, filename = "convo-validation.y
 #' agent <- create_pb_agent(convo, data.frame(IND_A = 1, IND_B = 5, DT_B = as.Date("2020-01-01")))
 create_pb_agent <- function(convo, tbl, level = 1) {
 
-  if(!requireNamespace("pointblank", quietly = TRUE)) {
-    stop(
-      "The package 'pointblank' is required to use function convo::create_pb_agent()",
-      "Please install from CRAN and retry."
-    )
-  }
+  stop_suggest("pointblank", "create_pb_agent()")
 
   stubs_funs_step <- get_pb_lines(convo, level)
   code_lines <- c(paste0("create_agent(tbl)"), stubs_funs_step)

@@ -17,13 +17,7 @@
 #' }
 write_convo <- function(convo_min, filename = "convo-config.yml", path = ".") {
 
-  if(!requireNamespace("yaml", quietly = TRUE)) {
-    stop(
-      "The package 'yaml' is required to use function convo::write_convo()",
-      "Please install from CRAN and retry."
-    )
-  }
-
+  stop_suggest("yaml", "write_convo()")
   convo_obj <- create_convo(convo_min)
   yaml::write_yaml(convo_obj, file = file.path(path, filename))
 

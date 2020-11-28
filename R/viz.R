@@ -9,12 +9,7 @@
 #' viz_names(vbls_df)
 viz_names <- function(convo_df) {
 
-  if(!requireNamespace("collapsibleTree", quietly = TRUE)) {
-    stop(
-      "The package 'collapsibleTree' is required to use function convo::viz_names()",
-      "Please install from CRAN and retry."
-    )
-  }
+  stop_suggest("collapsibleTree", "viz_names()")
   cols <- names(convo_df)
   cols <- sort(cols[grepl("level\\d", cols)])
   collapsibleTree::collapsibleTree(convo_df,
