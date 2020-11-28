@@ -41,7 +41,6 @@ describe_names <- function(vars, convo, desc_str = "{level1} of entity {level2}"
 #' @examples
 #' filepath <- system.file("", "ex-convo.yml", package = "convo")
 #' convo <- read_convo(filepath)
-#' describe_convo(convo)
 describe_convo <- function(convo, include_valid = FALSE, for_DT = TRUE) {
 
   descs <- get_desc(convo)
