@@ -13,8 +13,9 @@ cluster_convo(
 \arguments{
 \item{convo}{A \code{convo} object or list of stubs by level}
 
-\item{adist_costs}{Releative costs of insertion, deletion, and substitution
-passed to the \code{costs} argument of \code{adist()}}
+\item{adist_costs}{Relative costs of insertion, deletion, and substitution
+passed to the \code{costs} argument of \code{adist()}. Must be named vector with elements
+named \code{insertion}, \code{deletion}, and \code{substituion} or partial matches.}
 
 \item{hclust_method}{Agglomeration method passed to the \code{method} argument of \code{hclust()}}
 }
@@ -50,6 +51,6 @@ plot(clusts[[1]])
 plot(clusts[[2]])
 
 stubs <- parse_stubs(c("IND_ACCOUNT", "AMT_ACCT", "ID_ACCNT", "DT_LOGIN", "DT_ENROLL"))
-clusts <- cluster_convo(stubs)
+clusts <- cluster_convo(stubs, adist_costs = c(ins = 10, del = 10, sub = 1))
 
 }

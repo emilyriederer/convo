@@ -24,6 +24,22 @@ get_valid <- function(convo) {
 
 #' @noRd
 #' @keywords internal
+get_rename <- function(convo) {
+
+  names(convo) <- NULL
+  renames <-
+    lapply(convo,
+           FUN = function(x) lapply(x, function(y) y[["rename"]]))
+  renames <- unlist(renames, FALSE)
+  renames <- renames[vapply(renames, length, numeric(1)) != 0]
+  unlist(lapply(1:length(renames),
+                function(y) lapply(renames[[y]], function(x) c(names(renames)[y], x[["when"]], x[["then"]]))),
+         recursive = FALSE)
+
+}
+
+#' @noRd
+#' @keywords internal
 stop_suggest <- function(pkg, fun) {
 
   if(!requireNamespace(pkg, quietly = TRUE)) {

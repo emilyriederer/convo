@@ -22,5 +22,4 @@ Create schema dictionary
 \examples{
 filepath <- system.file("", "ex-convo.yml", package = "convo")
 convo <- read_convo(filepath)
-describe_convo(convo)
 }
