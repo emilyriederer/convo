@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pipe operator — %&gt;% • convo</title>
+<title>Rename computed columns based on controlled vocabulary — rename_convo • convo</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,8 +46,10 @@
 
 
 
-<meta property="og:title" content="Pipe operator — %&gt;%" />
-<meta property="og:description" content="See magrittr::%&amp;gt;% for details." />
+<meta property="og:title" content="Rename computed columns based on controlled vocabulary — rename_convo" />
+<meta property="og:description" content="Often when columns are operated on, their former name will no longer correctly indicate their
+properties. For example, when binary indicator variables are summed, they become integer count
+variables instead." />
 <meta property="og:image" content="https://emilyriederer.github.io/convo/logo.png" />
 
 
@@ -138,19 +140,57 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Pipe operator</h1>
-    <small class="dont-index">Source: <a href='https://github.com/emilyriederer/convo/blob/master/R/utils-pipe.R'><code>R/utils-pipe.R</code></a></small>
-    <div class="hidden name"><code>pipe.Rd</code></div>
+    <h1>Rename computed columns based on controlled vocabulary</h1>
+    <small class="dont-index">Source: <a href='https://github.com/emilyriederer/convo/blob/master/R/rename.R'><code>R/rename.R</code></a></small>
+    <div class="hidden name"><code>rename_convo.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>See <code>magrittr::%&gt;%</code> for details.</p>
+    <p>Often when columns are operated on, their former name will no longer correctly indicate their
+properties. For example, when binary indicator variables are summed, they become integer count
+variables instead.</p>
     </div>
 
-    <pre class="usage"><span class='va'>lhs</span> <span class='op'>%&gt;%</span> <span class='va'>rhs</span></pre>
+    <pre class="usage"><span class='fu'>rename_convo</span><span class='op'>(</span><span class='va'>vbls</span>, <span class='va'>convo</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>vbls</th>
+      <td><p>Character vector of variable names to transform</p></td>
+    </tr>
+    <tr>
+      <th>convo</th>
+      <td><p><code>convo</code> object with at least one vocabulary item with <code>rename</code> property</p></td>
+    </tr>
+    </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>Character vector of column names renamed per <code>convo</code> specification</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>This function allows users to specify the <code>rename</code> property in their <code>convo</code> to
+explain how certain variables ought be renamed when transformed. It plays particularly nicely
+with the automatic renaming conventions of <code>dplyr</code> scoped operators, as shown in the second example.</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='va'>path</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span><span class='op'>(</span><span class='st'>""</span>, <span class='st'>"ex-convo.yml"</span>, package <span class='op'>=</span> <span class='st'>"convo"</span><span class='op'>)</span>
+<span class='va'>convo</span> <span class='op'>&lt;-</span> <span class='fu'><a href='read_convo.html'>read_convo</a></span><span class='op'>(</span><span class='va'>path</span><span class='op'>)</span>
+<span class='va'>vbl_names</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"IND_A_AVG"</span>, <span class='st'>"IND_B_SUM"</span><span class='op'>)</span>
+<span class='fu'>rename_convo</span><span class='op'>(</span><span class='va'>vbl_names</span>, <span class='va'>convo</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "P_A" "N_B"</div><div class='input'>
+
+<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
+  IND_A <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>:</span><span class='fl'>1</span>, <span class='fl'>10</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,
+  IND_B <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='fl'>0</span><span class='op'>:</span><span class='fl'>1</span>, <span class='fl'>10</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+  <span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>summarize_all</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>SUM <span class='op'>=</span> <span class='va'>sum</span>, AVG <span class='op'>=</span> <span class='va'>mean</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+    <span class='fu'>rename_all</span><span class='op'>(</span><span class='op'>~</span><span class='fu'>rename_convo</span><span class='op'>(</span><span class='va'>.</span>, <span class='va'>convo</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
