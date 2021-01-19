@@ -79,7 +79,7 @@ get_pb_lines <- function(convo, level) {
   funs <- funs[!no_funs]
 
   edit_expect <- function(stub, fun) {
-    stub_prep <- paste0("(", "matches('", "^([A-Za-z]_){", level-1 ,"}", stub, "')")
+    stub_prep <- paste0("(", "matches('", "^([A-Za-z]+_){", level-1 ,"}", stub, "')")
     stub_prep <- ifelse(!grepl("\\(\\)", fun), paste0(stub_prep, ", "), stub_prep)
     final <- sub("\\(", stub_prep, fun)
     return(final)
