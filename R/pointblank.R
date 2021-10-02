@@ -23,6 +23,7 @@ write_pb <- function(convo, col_names, level = 1, filename = "convo-validation.y
   stop_suggest("pointblank", "write_pb()")
 
   stubs_funs_step <- get_pb_lines(convo, level)
+  path <- gsub("\\\\", "/", path)
 
   df_code <-
     sprintf("setNames(as.data.frame(matrix(1, ncol = %d)), c( %s))",
